@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Awais Ashraf</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z' fill='%232563EB'/%3E%3Cpath d='M16 14l-5 6 5 6M24 14l5 6-5 6' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.5 13l-3 14' stroke='%23BFD5FE' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta name="description" content="Awais Ashraf, Senior SQA Engineer based in the UAE.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#0A1630">
 <meta property="og:title" content="Awais Ashraf, Senior SQA Engineer">
 <meta property="og:description" content="Senior SQA Engineer in the UAE. Degrees and documents attested, degree equivalency certified. AI-driven QA with Claude Code skills and agents, test automation, performance and accessibility testing.">
 <meta property="og:url" content="https://awaisashrafqa.github.io/">
@@ -206,6 +208,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);z-index:70;padding:12px 18px;border-radius:10px;background:var(--ink);color:var(--bg);font:500 14px var(--f-body);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+.logo-mark{width:34px;height:34px;flex:none;transition:transform .25s}
+.mark:hover .logo-mark{transform:translateY(-1px) rotate(-4deg)}
+
 /* UAE attestation */
 .badges{display:flex;flex-wrap:wrap;gap:10px}
 .attest{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border-radius:999px;border:1px solid rgba(250,204,21,.45);background:rgba(250,204,21,.12);font:600 13.5px var(--f-body);color:#FDE68A}
@@ -230,7 +235,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <body>
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a class="mark" href="#top"><b>AA</b>Awais Ashraf</a>
+    <a class="mark" href="#top" aria-label="Awais Ashraf, back to top"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z" fill="#2563EB"/><path d="M16 14l-5 6 5 6M24 14l5 6-5 6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.5 13l-3 14" stroke="#BFD5FE" stroke-width="2.2" stroke-linecap="round"/></svg>Awais Ashraf</a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#results">Results</a></li>
