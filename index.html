@@ -213,8 +213,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 /* UAE attestation */
 .badges{display:flex;flex-wrap:wrap;gap:10px}
-.attest{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border-radius:999px;border:1px solid rgba(250,204,21,.45);background:rgba(250,204,21,.12);font:600 13.5px var(--f-body);color:#FDE68A}
-.attest svg{width:16px;height:16px;flex:none}
+.uae-card{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:12px 18px 12px 12px;max-width:100%;border-radius:14px;background:linear-gradient(100deg,rgba(250,204,21,.16),rgba(250,204,21,.04));border:1px solid rgba(250,204,21,.38)}
+.uae-ic{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:10px;background:#FACC15;color:#3A2A00}
+.uae-ic svg{width:24px;height:24px}
+.uae-txt{min-width:0}
+.uae-txt b{display:block;font:700 15px/1.3 var(--f-display);letter-spacing:.01em;color:#FEF3C7}
+.uae-items{display:flex;flex-wrap:wrap;gap:2px 14px;margin-top:3px;font-size:14px;color:#FDE68A}
+.uae-items span{display:inline-flex;align-items:center;gap:7px}
+.uae-items span::before{content:"";width:6px;height:6px;border-radius:50%;background:#FACC15;flex:none}
 .uae-note{display:flex;gap:12px;align-items:flex-start;margin-top:20px;padding:14px 16px;border-radius:12px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
 .uae-note svg{width:22px;height:22px;flex:none;color:var(--accent)}
 .uae-note b{display:block;font:700 15px var(--f-display);color:var(--ink)}
@@ -255,10 +261,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <div class="intro">
       <div class="badges">
         <span class="avail"><i></i>Available immediately · UAE</span>
-        <span class="attest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.6-7 10-4-1.4-7-5.4-7-10V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg>UAE: degrees &amp; documents attested · degree equivalency certified</span>
       </div>
       <h1>Awais Ashraf</h1>
       <div class="role">Senior SQA Engineer · AI-Driven QA &amp; Test Automation</div>
+      <div class="uae-card">
+        <span class="uae-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.6-7 10-4-1.4-7-5.4-7-10V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg></span>
+        <div class="uae-txt">
+          <b>UAE-ready credentials</b>
+          <span class="uae-items"><span>Degrees &amp; documents attested</span><span>Degree equivalency certified</span></span>
+        </div>
+      </div>
       <p class="lead">7+ years of enterprise <strong>web, mobile and API</strong> quality. I build custom <strong>Claude Code skills and AI agents</strong> that automate API testing, release processes, test data generation and bug triage, turning days of manual effort into minutes.</p>
       <ul class="facts">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>United Arab Emirates</li>
