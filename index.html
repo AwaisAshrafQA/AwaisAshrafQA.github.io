@@ -58,7 +58,7 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:
 .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;border:1px solid var(--hero-line);background:transparent;color:var(--hero-fg);cursor:pointer}
 .icon-btn:hover{background:rgba(255,255,255,.08)}
 .icon-btn svg{width:18px;height:18px}
-@media (max-width:980px){.nav ul{display:none}.nav .icon-btn{margin-left:auto}}
+@media (max-width:1060px){.nav ul{display:none}.nav .icon-btn{margin-left:auto}}
 
 /* hero */
 .hero{position:relative;background:var(--hero-bg);color:var(--hero-fg);padding-block:clamp(36px,5vw,64px) clamp(40px,5vw,64px);overflow:hidden;isolation:isolate}
@@ -213,6 +213,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .logo-mark{width:34px;height:34px;flex:none;transition:transform .25s}
 .mark:hover .logo-mark{transform:translateY(-1px) rotate(-4deg)}
 
+.nav ul a.ai-link{color:#fff;background:rgba(37,99,235,.35)}
+.nav ul a.ai-link:hover{background:rgba(37,99,235,.55)}
+a.more{font-weight:600;color:var(--accent-strong);text-decoration:none;white-space:nowrap}
+a.more:hover{text-decoration:underline}
+.skill.feature a.more{color:#93C5FD}
+
 /* compact layout */
 .head{margin-bottom:18px}
 .head h2{margin-top:8px}
@@ -274,6 +280,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <ul>
       <li><a href="#about">Who I am</a></li>
       <li><a href="#results">Proven impact</a></li>
+      <li><a href="ai.html" class="ai-link">AI work</a></li>
       <li><a href="#experience">Career</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#credentials">Credentials</a></li>
@@ -310,6 +317,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
       <div class="cta">
         <a class="btn primary" href="#contact">Contact me
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="ai.html">See my AI work</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/awais-ashraf-3586409a" target="_blank" rel="noopener">View LinkedIn</a>
       </div>
     </div>
@@ -344,7 +352,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
       <p>Claude Code, GitHub Copilot, ChatGPT and Cursor are everyday engineering tools for me. I build custom Claude Code skills and AI agents that automate API testing, weekly releases, test data generation and bug triage. One example is an HOS Analyzer skill that produces Hours of Service test data in minutes instead of days.</p>
       <p>Underneath that is a solid automation base (RestAssured, Playwright, Cypress, Selenium, Appium) and QA leadership across test strategy, regression suites and release sign-off.</p>
       <div class="focus">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9zM9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg><b>AI-driven QA</b><span>Custom Claude Code skills and LLM agents for API testing, releases, test data and triage.</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9zM9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg><b>AI-driven QA</b><span>Custom Claude Code skills and LLM agents for API testing, releases, test data and triage. <a class="more" href="ai.html">See the projects →</a></span></div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8"/></svg><b>Test automation</b><span>RestAssured, Playwright, Cypress, Selenium, Appium, run on every build in CI/CD.</span></div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg><b>Performance & security</b><span>Load testing with JMeter and LoadRunner; web and API security checks.</span></div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><path d="M5 8l7 1.5L19 8M12 9.5V14l-3 7M12 14l3 7"/></svg><b>Accessibility</b><span>WCAG 2.1 AA with axe, WAVE, Lighthouse, NVDA and JAWS.</span></div>
@@ -560,7 +568,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   $('#skillGrid').innerHTML = SK.map(s => `
     <div class="skill${s.feature ? ' feature' : ''}">
       <h3>${s.n}<span class="count">${s.t.length}</span></h3>
-      ${s.lede ? `<p class="lede">${s.lede}</p>` : ''}
+      ${s.lede ? `<p class="lede">${s.lede} <a class="more" href="ai.html">See my AI projects →</a></p>` : ''}
       <div class="tags">${s.t.map(x => `<span>${x}</span>`).join('')}</div>
     </div>`).join('');
   const total = SK.reduce((a, s) => a + s.t.length, 0);
