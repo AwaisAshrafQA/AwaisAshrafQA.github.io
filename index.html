@@ -266,6 +266,28 @@ a.more{display:inline-block;padding-block:6px}
 .link .lbl{grid-area:lbl}
 .link .val{grid-area:val;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:16px;font-weight:500;overflow-wrap:normal}
 .link button,.link a.go{grid-area:act;padding:6px 12px;font-size:12.5px}
+/* contact: split layout */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+@media (max-width:900px){.contact-grid{grid-template-columns:minmax(0,1fr)}}
+.contact .pitch p.sub{margin:14px 0 22px}
+.contact-cta{display:flex;flex-wrap:wrap;gap:10px}
+.contact-cta .btn svg{width:17px;height:17px}
+@media (max-width:560px){.contact-cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.contact-cta .btn{justify-content:center;padding:12px 8px;font-size:14px;white-space:nowrap}}
+@media (max-width:360px){.contact-cta .btn svg{display:none}}
+.rows{display:grid;gap:10px;min-width:0}
+.crow{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--hero-line);color:var(--hero-fg);text-decoration:none;min-width:0;transition:background .2s,border-color .2s}
+.crow:hover{background:rgba(255,255,255,.08);border-color:rgba(96,165,250,.45)}
+.cic{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:rgba(37,99,235,.28);color:#93C5FD;flex:none}
+.cic svg{width:20px;height:20px}
+.ctext{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.clbl{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--hero-muted)}
+.cval{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;user-select:all}
+.cact{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--hero-line);background:transparent;color:#93C5FD;cursor:pointer;flex:none;transition:background .2s,color .2s}
+.cact svg{width:18px;height:18px}
+.cact:hover,.crow:hover .cact{background:rgba(37,99,235,.3);color:#fff}
+.cact.done{color:#34D399;border-color:rgba(52,211,153,.6)}
+@media (max-width:420px){.crow{padding:12px;gap:10px}.cic{width:36px;height:36px}.cval{font-size:15px}}
+@media (max-width:360px){.crow{padding:11px 10px}.cval{font-size:13.5px}.cact{width:36px;height:36px}}
 /* compact layout */
 .head{margin-bottom:18px}
 .head h2{margin-top:8px}
@@ -512,35 +534,35 @@ a.more{display:inline-block;padding-block:6px}
 </section>
 
 <section class="block contact" id="contact">
-  <div class="wrap">
-    <span class="label">Get in Touch</span>
-    <h2>Looking for a Senior or Lead QA Engineer?</h2>
-    <p class="sub">I'm based in Dubai, available to start immediately and open to relocating. My degrees and documents are attested, and my degree equivalency is certified for UAE employment. I'm interested in fintech, logistics, e-commerce, telecom and government digital services.</p>
-    <div class="links">
-      <div class="link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        <div><div class="lbl">Email</div><div class="val" id="v-email">uol.awais@gmail.com</div></div>
-        <button type="button" data-copy="v-email">Copy</button>
-      </div>
-      <div class="link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-        <div><div class="lbl">Phone</div><div class="val" id="v-phone">+971 50 398 3276</div></div>
-        <button type="button" data-copy="v-phone">Copy</button>
-      </div>
-      <div class="link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.55h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4z"/></svg>
-        <div><div class="lbl">LinkedIn</div><div class="val">awais-ashraf-3586409a</div></div>
-        <a class="go" href="https://www.linkedin.com/in/awais-ashraf-3586409a" target="_blank" rel="noopener">Open</a>
-      </div>
-      <div class="link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
-        <div><div class="lbl">Resume</div><div class="val">Senior SQA Engineer · PDF</div></div>
-        <a class="go" href="Awais_Ashraf_SQA_Resume_UAE.pdf" download="Awais_Ashraf_SQA_Resume_UAE.pdf">Download</a>
+  <div class="wrap contact-grid">
+    <div class="pitch">
+      <span class="label">Get in Touch</span>
+      <h2>Looking for a Senior or Lead QA Engineer?</h2>
+      <p class="sub">I'm based in Dubai, available to start immediately and open to relocating. My degrees and documents are attested, and my degree equivalency is certified for UAE employment. I'm interested in fintech, logistics, e-commerce, telecom and government digital services.</p>
+      <div class="contact-cta">
+        <a class="btn primary" href="mailto:uol.awais@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email Me</a>
+        <a class="btn ghost" href="Awais_Ashraf_SQA_Resume_UAE.pdf" download="Awais_Ashraf_SQA_Resume_UAE.pdf"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v8M4.5 7.5L8 11l3.5-3.5M3 13.5h10"/></svg>Download Resume</a>
       </div>
     </div>
+    <div class="rows">
+      <div class="crow">
+        <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <span class="ctext"><span class="clbl">Email</span><span class="cval" id="v-email">uol.awais@gmail.com</span></span>
+        <button class="cact" type="button" data-copy="v-email" aria-label="Copy email address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+      </div>
+      <div class="crow">
+        <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+        <span class="ctext"><span class="clbl">Phone</span><span class="cval" id="v-phone">+971 50 398 3276</span></span>
+        <button class="cact" type="button" data-copy="v-phone" aria-label="Copy phone number"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+      </div>
+      <a class="crow" href="https://www.linkedin.com/in/awais-ashraf-3586409a" target="_blank" rel="noopener">
+        <span class="cic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.55h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4z"/></svg></span>
+        <span class="ctext"><span class="clbl">LinkedIn</span><span class="cval">awais-ashraf-3586409a</span></span>
+        <span class="cact" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span>
+      </a>
+    </div>
   </div>
-</section>
-</main>
+</section></main>
 <footer>
   <div class="wrap">
     <span>© 2026 Awais Ashraf</span>
@@ -647,7 +669,7 @@ a.more{display:inline-block;padding-block:6px}
   $$('[data-copy]').forEach(b => b.addEventListener('click', () => {
     const el = document.getElementById(b.dataset.copy), text = el.textContent;
     const fallback = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Selected. Press Ctrl+C to copy.'); };
-    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1600); say(`Copied ${text}`); }, fallback);
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => { b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1600); say(`Copied ${text}`); }, fallback);
     else fallback();
   }));
 
