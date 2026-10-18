@@ -57,12 +57,25 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:
 .nav ul a{display:block;padding:8px 12px;border-radius:6px;text-decoration:none;font-size:14.5px;color:var(--hero-muted);transition:color .2s,background .2s}
 .nav ul a:hover{color:#fff;background:rgba(255,255,255,.08)}
 .nav ul a.on{color:#fff;background:rgba(37,99,235,.35)}
-.back{display:none;margin-left:auto;font-size:14px;color:var(--hero-muted);text-decoration:none;padding:8px 10px;border-radius:6px}
-.back:hover{color:#fff;background:rgba(255,255,255,.08)}
 .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;border:1px solid var(--hero-line);background:transparent;color:var(--hero-fg);cursor:pointer}
 .icon-btn:hover{background:rgba(255,255,255,.08)}
 .icon-btn svg{width:18px;height:18px}
-@media (max-width:1060px){.nav ul{display:none}.back{display:block}}
+.mark{white-space:nowrap}
+.nav ul li:first-child{display:none}
+.menu-btn{display:none}
+.menu-btn .i-close{display:none}
+.nav.open .menu-btn .i-open{display:none}
+.nav.open .menu-btn .i-close{display:block}
+section.block{scroll-margin-top:72px}
+@media (max-width:1060px){
+  .menu-btn{display:grid;margin-left:auto}
+  .nav ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:2px;margin:0;padding:8px clamp(16px,4vw,32px) 16px;background:var(--hero-bg);border-bottom:1px solid var(--hero-line);box-shadow:0 18px 30px rgba(0,0,0,.28);max-height:calc(100dvh - 64px);overflow-y:auto}
+  .nav.open ul{display:flex}
+  .nav ul li:first-child{display:block}
+  .nav ul a{padding:13px 14px;font-size:16px;border-radius:8px}
+}
+@media (max-width:380px){.mark{font-size:15px;gap:8px}.logo-mark{width:30px;height:30px}.nav .wrap{gap:10px}}
+@media (min-width:1600px){:root{--maxw:1240px}}
 
 /* hero */
 .hero{position:relative;background:var(--hero-bg);color:var(--hero-fg);padding-block:clamp(36px,5vw,64px) clamp(40px,5vw,64px);overflow:hidden;isolation:isolate}
@@ -75,8 +88,8 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:
 .hero h1 em{font-style:normal;color:#93C5FD}
 .hero .lead{max-width:44em;margin:18px 0 0;font-size:clamp(16px,1.5vw,18px);color:var(--hero-muted)}
 .hero .lead strong{color:var(--hero-fg);font-weight:500}
-.hstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:32px;background:var(--hero-line);border-radius:14px;overflow:hidden;border:1px solid var(--hero-line)}
-@media (max-width:820px){.hstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:32px;background:var(--hero-line);border-radius:14px;overflow:hidden;border:1px solid var(--hero-line)}
+@media (max-width:640px){.hstats{grid-template-columns:1fr}}
 .hstat{padding:18px 20px;background:color-mix(in srgb,var(--hero-bg) 88%,#2563EB)}
 .hstat b{display:block;font:800 clamp(24px,2.8vw,32px)/1.1 var(--f-display);letter-spacing:-.02em;color:#fff}
 .hstat b em{font-style:normal;color:#93C5FD}
@@ -157,7 +170,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <nav class="nav" aria-label="Main">
   <div class="wrap">
     <a class="mark" href="index.html" aria-label="Awais Ashraf, back to profile"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z" fill="#2563EB"/><path d="M16 14l-5 6 5 6M24 14l5 6-5 6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.5 13l-3 14" stroke="#BFD5FE" stroke-width="2.2" stroke-linecap="round"/></svg>Awais Ashraf</a>
-    <ul>
+    <ul id="navList">
+      <li><a href="index.html">Profile home</a></li>
       <li><a href="index.html#about">Who I am</a></li>
       <li><a href="index.html#results">Proven impact</a></li>
       <li><a href="index.html#experience">Career</a></li>
@@ -166,7 +180,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
       <li><a href="index.html#contact">Get in touch</a></li>
       <li><a href="ai.html" class="on" aria-current="page">AI work</a></li>
     </ul>
-    <a class="back" href="index.html">← Profile</a>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navList">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
     <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch color theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
     </button>
@@ -177,12 +194,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <div class="wrap">
     <div class="crumb"><a href="index.html">Awais Ashraf</a> / AI work</div>
     <h1>AI-driven QA that turns <em>days into minutes</em></h1>
-    <p class="lead">I use Claude Code, GitHub Copilot, ChatGPT and Cursor as everyday engineering tools. I build <strong>custom Claude Code skills and AI agents</strong> that automate API testing, release processes, test data generation and bug triage, with a person reviewing every result.</p>
+    <p class="lead">At Motive I introduced AI-driven QA: <strong>custom Claude Code skills and LLM agents</strong> that automate the API pipeline, the weekly release process, test data generation and bug triage, turning days of manual effort into minutes.</p>
     <div class="hstats">
       <div class="hstat"><b>Days<em>→</em>min</b><span>HOS test data with a custom Claude Code skill</span></div>
-      <div class="hstat"><b>~40<em>%</em></b><span>less defect triage time per sprint with AI agents</span></div>
-      <div class="hstat"><b>4</b><span>AI coding tools used daily for test code and analysis</span></div>
-      <div class="hstat"><b>100k</b><span>businesses on the fleet platform where I did this work</span></div>
+      <div class="hstat"><b>~40<em>%</em></b><span>less defect triage time per sprint with LLM agents</span></div>
+      <div class="hstat"><b>100k<em>+</em></b><span>businesses on the platform where I did this work</span></div>
     </div>
   </div>
 </header>
@@ -193,7 +209,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <div class="head">
       <span class="label">Projects</span>
       <h2>What I've built</h2>
-      <p>Five pieces of AI work from my time as Senior SQA Engineer at Motive, a fleet management platform.</p>
+      <p>Four pieces of AI work from my time as Senior SQA Engineer at Motive, a B2B fleet management platform.</p>
     </div>
 
     <div class="cases">
@@ -226,8 +242,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
           <h3>HOS Analyzer: compliance test data in minutes</h3>
           <dl>
             <dt>The problem</dt><dd>Testing ELD and Hours of Service (HOS) features for FMCSA compliance needs realistic driver-log data, and building it by hand took days.</dd>
-            <dt>What I built</dt><dd>An <strong>HOS Analyzer skill</strong> for Claude Code that generates HOS test data on demand. Alongside it, I built skills that <strong>fix UI and backend issues without needing a developer</strong>.</dd>
-            <dt>The result</dt><dd>HOS test data now takes minutes instead of days, and smaller fixes no longer wait in a developer's queue.</dd>
+            <dt>What I built</dt><dd>An <strong>HOS Analyzer skill</strong> for Claude Code that generates HOS test data on demand. Alongside it, I built <strong>diagnostic skills that propose fixes for UI and backend defects</strong>.</dd>
+            <dt>The result</dt><dd>HOS test data creation dropped from days to minutes, and developers got proposed fixes with each defect, shortening their turnaround.</dd>
           </dl>
         </div>
         <div class="side">
@@ -242,7 +258,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
           <h3>AI agents for defect triage and regression analysis</h3>
           <dl>
             <dt>The problem</dt><dd>Working out why tests failed meant digging through logs and writing up defects by hand, every sprint.</dd>
-            <dt>What I built</dt><dd>AI-powered QA agents using <strong>LangChain and OpenAI APIs</strong> for test data generation, defect triage and regression analysis. I extended them to <strong>analyse Datadog and Splunk logs</strong> and <strong>draft Jira defect reports</strong>.</dd>
+            <dt>What I built</dt><dd>LLM-based QA agents using <strong>LangChain and OpenAI APIs</strong> for test data generation, defect triage, regression analysis and <strong>Datadog and Splunk log review</strong>. They <strong>auto-draft Jira defect reports</strong>.</dd>
             <dt>The result</dt><dd>Triage time dropped by about 40% per sprint.</dd>
           </dl>
         </div>
@@ -281,22 +297,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
           <div class="chips"><span>CrewAI</span><span>Microsoft AutoGen</span><span>Multi-agent orchestration</span></div>
         </div>
       </article>
-
-      <article class="case">
-        <div>
-          <div class="case-top"><span class="num">5</span><span class="tag">Daily practice</span></div>
-          <h3>AI-assisted test engineering, every day</h3>
-          <dl>
-            <dt>How I use it</dt><dd>Claude Code, GitHub Copilot, ChatGPT and Cursor help me <strong>generate and maintain Playwright and Cypress tests</strong>, and speed up test design, documentation and exploratory analysis.</dd>
-            <dt>The rule</dt><dd>Every piece of AI-generated test code and analysis gets a human review before it's trusted.</dd>
-            <dt>Alongside</dt><dd>This sits on top of standard automation: web coverage grew from about 20% to about 85% across critical user journeys, run on every build.</dd>
-          </dl>
-        </div>
-        <div class="side">
-          <div class="result"><b>~20% → ~85%</b><span>web automation coverage on critical journeys</span></div>
-          <div class="chips"><span>Claude Code</span><span>GitHub Copilot</span><span>ChatGPT</span><span>Cursor AI</span><span>Playwright</span><span>Cypress</span></div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -324,10 +324,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     </div>
     <div class="kit">
       <h3>Tools</h3>
-      <div class="chips"><span>Claude Code</span><span>Claude Code Skills</span><span>Claude</span><span>GitHub Copilot</span><span>ChatGPT</span><span>Cursor AI</span><span>OpenAI APIs</span><span>LangChain</span><span>CrewAI</span><span>Microsoft AutoGen</span><span>Google Gemini</span></div>
+      <div class="chips"><span>Claude Code</span><span>GitHub Copilot</span><span>Cursor</span><span>ChatGPT</span><span>Google Gemini</span><span>OpenAI APIs (LLMs)</span><span>LangChain</span><span>CrewAI</span><span>Microsoft AutoGen</span></div>
       <h3>Techniques</h3>
-      <div class="chips"><span>LLM-based test generation</span><span>Prompt engineering</span><span>Agentic workflows</span><span>Multi-agent orchestration</span><span>Model Context Protocol (MCP)</span><span>Self-healing tests</span><span>AI-assisted defect triage</span><span>AI test data generation</span><span>Human-in-the-loop validation</span></div>
-    </div>
+      <div class="chips"><span>Model Context Protocol (MCP)</span><span>Prompt engineering</span><span>Agentic workflows</span><span>Multi-agent prototypes</span><span>AI-assisted defect triage</span><span>AI test data generation</span><span>Log analysis with LLMs</span></div>    </div>
     <p class="note">Project descriptions are summaries of my own work. They don't include any company code, data or internal screenshots.</p>
   </div>
 </section>
@@ -337,7 +336,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <div class="wrap">
     <div>
       <h2>Want this kind of QA on your team?</h2>
-      <p>Based in the UAE, available immediately and open to relocating.</p>
+      <p>Based in Dubai, UAE, available immediately and open to relocating.</p>
     </div>
     <div class="btns">
       <a class="btn primary" href="index.html#contact">Get in touch
@@ -349,7 +348,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <footer>
   <div class="wrap">
     <span>© 2026 Awais Ashraf</span>
-    <span>Senior SQA Engineer · United Arab Emirates</span>
+    <span>Senior SQA Engineer · Dubai, UAE</span>
   </div>
 </footer>
 
@@ -362,6 +361,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     root.dataset.theme = dark ? 'light' : 'dark';
     try { localStorage.setItem('aa-theme', root.dataset.theme); } catch (e) {}
   });
+  const nav = document.querySelector('.nav'), menuBtn = document.getElementById('menuBtn');
+  const setMenu = open => { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('#navList a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', e => { if (!nav.contains(e.target)) setMenu(false); });
 })();
 </script>
 </body>
