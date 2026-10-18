@@ -24,7 +24,7 @@
   --f-display:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
   --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-  --maxw:1120px; color-scheme:light;
+  --maxw:1340px; color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0A1220; --surface:#111C2E; --sunk:#0E1828; --ink:#E8EEF6; --muted:#9AA8BB; --line:#22314A;
@@ -43,7 +43,7 @@ html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(16px,3.2vw,48px)}
 h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.015em}
 .label{font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-strong)}
 
@@ -75,7 +75,7 @@ section.block{scroll-margin-top:72px}
   .nav ul a{padding:13px 14px;font-size:16px;border-radius:8px}
 }
 @media (max-width:380px){.mark{font-size:15px;gap:8px}.logo-mark{width:30px;height:30px}.nav .wrap{gap:10px}}
-@media (min-width:1600px){:root{--maxw:1240px}}
+@media (min-width:1600px){:root{--maxw:1520px}}
 
 /* hero */
 .hero{position:relative;background:var(--hero-bg);color:var(--hero-fg);padding-block:clamp(36px,5vw,64px) clamp(40px,5vw,64px);overflow:hidden;isolation:isolate}

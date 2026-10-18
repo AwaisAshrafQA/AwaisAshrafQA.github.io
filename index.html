@@ -24,7 +24,7 @@ html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}
   --shadow:0 1px 2px rgba(15,27,45,.05),0 8px 24px rgba(15,27,45,.07);
   --f-display:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
   --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  --maxw:1120px;
+  --maxw:1340px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0A1220; --surface:#111C2E; --sunk:#0E1828; --ink:#E8EEF6; --muted:#9AA8BB; --line:#22314A;
@@ -42,7 +42,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(16px,3.2vw,48px)}
 h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.015em}
 .label{font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-strong)}
 
@@ -236,7 +236,7 @@ a.more{display:inline-block;padding-block:6px}
   .nav ul a{padding:13px 14px;font-size:16px;border-radius:8px}
 }
 @media (max-width:380px){.mark{font-size:15px;gap:8px}.logo-mark{width:30px;height:30px}.nav .wrap{gap:10px}}
-@media (min-width:1600px){:root{--maxw:1240px}}
+@media (min-width:1600px){:root{--maxw:1520px}}
 
 .skill.wide{grid-column:1 / -1}
 
@@ -400,7 +400,6 @@ a.more{display:inline-block;padding-block:6px}
       <article class="metric"><div class="num"><em>−</em>60<em>%</em></div><p>Manual API testing effort after building RestAssured frameworks.</p><span class="co">Motive</span></article>
       <article class="metric"><div class="num"><em>−</em>40<em>%</em></div><p>Defect triage time per sprint using LangChain and OpenAI agents.</p><span class="co">Motive</span></article>
       <article class="metric"><div class="num">Days<em>→</em>min</div><p>HOS test data generation with a custom Claude Code skill.</p><span class="co">Motive</span></article>
-      <article class="metric"><div class="num">~100k</div><p>Businesses served by the fleet platform whose quality I validated.</p><span class="co">Motive</span></article>
       <article class="metric"><div class="num">0</div><p>Critical escaped defects across consecutive production releases.</p><span class="co">Cubic Solutions</span></article>
       <article class="metric"><div class="num"><em>−</em>30<em>%</em></div><p>Defect leakage to production through tighter lifecycle management.</p><span class="co">Cubic Solutions</span></article>
       <article class="metric"><div class="num"><em>−</em>50<em>%</em></div><p>New-hire ramp-up time after setting QA documentation standards.</p><span class="co">Cubic Solutions</span></article>
