@@ -466,7 +466,16 @@ main:focus{outline:none}
 @media (max-width:560px){.glance .photo{width:104px;height:104px}.glance .profile{gap:16px}}
 @media (max-width:360px){.glance .photo{width:88px;height:88px}}
 @media (min-width:1200px){.glance .photo{width:144px;height:144px}.glance .profile b{font-size:22px}}
-</style>
+
+/* timeline date ranges */
+.ty{white-space:nowrap}
+@media (max-width:760px){
+  .timeline li{grid-template-columns:16px minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:1px}
+  .tdot{grid-column:1;grid-row:1 / span 3;align-self:start;margin-top:3px}
+  .ty{grid-column:2;grid-row:1}
+  .timeline b{grid-column:2;grid-row:2}
+  .timeline small{grid-column:2;grid-row:3}
+}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -663,9 +672,9 @@ main:focus{outline:none}
       </div>
     </div>
     <ol class="timeline" aria-label="Career timeline">
-      <li><span class="ty">2019</span><span class="tdot"></span><b>SQA Engineer</b><small>Cubic Solutions Inc. · Lahore</small></li>
-      <li><span class="ty">2022</span><span class="tdot"></span><b>Senior SQA Engineer</b><small>Motive (formerly KeepTruckin) · Remote</small></li>
-      <li class="now"><span class="ty">2026</span><span class="tdot"></span><b>Based in Dubai</b><small>Available immediately</small></li>
+      <li><span class="ty">Feb 2019 – Apr 2022</span><span class="tdot"></span><b>SQA Engineer</b><small>Cubic Solutions Inc. · Lahore</small></li>
+      <li><span class="ty">May 2022 – Aug 2026</span><span class="tdot"></span><b>Senior SQA Engineer</b><small>Motive (formerly KeepTruckin) · Remote</small></li>
+      <li class="now"><span class="ty">Now</span><span class="tdot"></span><b>Based in Dubai</b><small>Available immediately</small></li>
     </ol>    <div class="filters" id="filters" role="group" aria-label="Filter experience by focus"></div>
     <div class="jobs" id="jobs"></div>
   </div>
