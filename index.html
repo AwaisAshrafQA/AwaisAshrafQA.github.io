@@ -458,7 +458,15 @@ main:focus{outline:none}
 .fcol .fh{margin:0 0 4px;font:600 12px var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:#C4B5FD}
 .metric .num.num-text{font-size:clamp(30px,2.8vw,40px)!important;line-height:1.1;padding-top:8px}
 @media (max-width:1060px){.nav .icon-btn{width:44px;height:44px}}
-@media (max-width:760px){.fcol{gap:0}.fcol a{padding-block:9px}}</style>
+@media (max-width:760px){.fcol{gap:0}.fcol a{padding-block:9px}}
+/* larger portrait */
+.glance .photo{width:128px;height:128px;padding:4px}
+.glance .profile{gap:20px}
+.glance .profile b{font-size:20px}
+@media (max-width:560px){.glance .photo{width:104px;height:104px}.glance .profile{gap:16px}}
+@media (max-width:360px){.glance .photo{width:88px;height:88px}}
+@media (min-width:1200px){.glance .photo{width:144px;height:144px}.glance .profile b{font-size:22px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
