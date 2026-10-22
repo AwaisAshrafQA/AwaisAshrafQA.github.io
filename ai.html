@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI Playbook · Awais Ashraf</title>
 <meta name="description" content="How Awais Ashraf uses Claude Code skills and AI agents to automate QA work: API testing, releases, test data and defect triage.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z' fill='%232563EB'/%3E%3Cpath d='M16 14l-5 6 5 6M24 14l5 6-5 6' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.5 13l-3 14' stroke='%23BFD5FE' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#0A1630">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z' fill='%237C3AED'/%3E%3Cpath d='M16 14l-5 6 5 6M24 14l5 6-5 6' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.5 13l-3 14' stroke='%23DDD6FE' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0E0828">
 <meta property="og:title" content="AI Playbook · Awais Ashraf">
 <meta property="og:description" content="Claude Code skills and AI agents that turn days of manual QA work into minutes, with human review of every result.">
 <meta property="og:url" content="https://awaisashrafqa.github.io/ai.html">
@@ -20,13 +20,13 @@
 <meta name="twitter:image" content="https://awaisashrafqa.github.io/og-image.png"><link rel="canonical" href="https://awaisashrafqa.github.io/ai.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Same system as the profile page: navy hero, white case-study cards, one blue accent. */
 :root{
-  --bg:#F5F7FA; --surface:#FFFFFF; --sunk:#EEF2F6; --ink:#0F1B2D; --muted:#566275; --line:#DFE5EC;
-  --accent:#1D4ED8; --accent-strong:#1E40AF; --accent-soft:#E4EBFC;
-  --hero-bg:#0A1630; --hero-fg:#F2F6FB; --hero-muted:#A9B8CC; --hero-line:rgba(255,255,255,.12);
+  --bg:#FFFFFF; --surface:#FFFFFF; --sunk:#F5F3FB; --ink:#15112B; --muted:#5D5873; --line:#E7E3F1;
+  --accent:#6D28D9; --accent-strong:#5B21B6; --accent-soft:#EFE9FD;
+  --hero-bg:#0E0828; --hero-fg:#F5F3FF; --hero-muted:#BDB6DA; --hero-line:rgba(255,255,255,.12);
   --shadow:0 1px 2px rgba(15,27,45,.05),0 8px 24px rgba(15,27,45,.07);
   --f-display:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
   --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
@@ -34,14 +34,14 @@
   --maxw:1340px; color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0A1220; --surface:#111C2E; --sunk:#0E1828; --ink:#E8EEF6; --muted:#9AA8BB; --line:#22314A;
-  --accent:#3B82F6; --accent-strong:#93B4FB; --accent-soft:#132449;
-  --hero-bg:#07152A; --hero-line:rgba(255,255,255,.10);
+  --bg:#09071A; --surface:#141029; --sunk:#0D0A20; --ink:#EEEAFB; --muted:#A49EC2; --line:#2A2447;
+  --accent:#A78BFA; --accent-strong:#C4B5FD; --accent-soft:#221A45;
+  --hero-bg:#07041A; --hero-line:rgba(255,255,255,.10);
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark }}
 :root[data-theme="dark"]{
-  --bg:#0A1220; --surface:#111C2E; --sunk:#0E1828; --ink:#E8EEF6; --muted:#9AA8BB; --line:#22314A;
-  --accent:#3B82F6; --accent-strong:#93B4FB; --accent-soft:#132449;
-  --hero-bg:#07152A; --hero-line:rgba(255,255,255,.10);
+  --bg:#09071A; --surface:#141029; --sunk:#0D0A20; --ink:#EEEAFB; --muted:#A49EC2; --line:#2A2447;
+  --accent:#A78BFA; --accent-strong:#C4B5FD; --accent-soft:#221A45;
+  --hero-bg:#07041A; --hero-line:rgba(255,255,255,.10);
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark }
 
 *{box-sizing:border-box}
@@ -63,7 +63,7 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:
 .nav ul{display:flex;gap:2px;list-style:none;margin:0 0 0 auto;padding:0}
 .nav ul a{display:block;padding:8px 12px;border-radius:6px;text-decoration:none;font-size:14.5px;color:var(--hero-muted);transition:color .2s,background .2s}
 .nav ul a:hover{color:#fff;background:rgba(255,255,255,.08)}
-.nav ul a.on{color:#fff;background:rgba(37,99,235,.35)}
+.nav ul a.on{color:#fff;background:rgba(124,58,237,.35)}
 .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;border:1px solid var(--hero-line);background:transparent;color:var(--hero-fg);cursor:pointer}
 .icon-btn:hover{background:rgba(255,255,255,.08)}
 .icon-btn svg{width:18px;height:18px}
@@ -86,20 +86,20 @@ section.block{scroll-margin-top:72px}
 
 /* hero */
 .hero{position:relative;background:var(--hero-bg);color:var(--hero-fg);padding-block:clamp(36px,5vw,64px) clamp(40px,5vw,64px);overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 380px at 85% 10%,rgba(37,99,235,.32),transparent 70%),radial-gradient(520px 360px at 5% 100%,rgba(30,64,175,.30),transparent 70%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 380px at 85% 10%,rgba(124,58,237,.32),transparent 70%),radial-gradient(520px 360px at 5% 100%,rgba(91,33,182,.30),transparent 70%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(var(--hero-line) 1px,transparent 1px),linear-gradient(90deg,var(--hero-line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 65%)}
 .crumb{font-size:14px;color:var(--hero-muted)}
-.crumb a{color:#93C5FD;text-decoration:none}
+.crumb a{color:#C4B5FD;text-decoration:none}
 .crumb a:hover{text-decoration:underline}
 .hero h1{margin-top:14px;font-size:clamp(38px,6vw,68px);font-weight:800;line-height:1.02;letter-spacing:-.035em;max-width:24ch}
-.hero h1 em{font-style:normal;color:#93C5FD}
+.hero h1 em{font-style:normal;color:#C4B5FD}
 .hero .lead{max-width:62em;margin:16px 0 0;font-size:clamp(16px,1.5vw,18px);color:var(--hero-muted)}
 .hero .lead strong{color:var(--hero-fg);font-weight:500}
 .hstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:26px;background:var(--hero-line);border-radius:14px;overflow:hidden;border:1px solid var(--hero-line)}
 @media (max-width:640px){.hstats{grid-template-columns:1fr}}
-.hstat{padding:18px 20px;background:color-mix(in srgb,var(--hero-bg) 88%,#2563EB)}
+.hstat{padding:18px 20px;background:color-mix(in srgb,var(--hero-bg) 88%,#7C3AED)}
 .hstat b{display:block;font:800 clamp(24px,2.8vw,32px)/1.1 var(--f-display);letter-spacing:-.02em;color:#fff}
-.hstat b em{font-style:normal;color:#93C5FD}
+.hstat b em{font-style:normal;color:#C4B5FD}
 .hstat span{display:block;margin-top:4px;font-size:13.5px;line-height:1.4;color:var(--hero-muted)}
 
 /* sections */
@@ -160,8 +160,8 @@ section.block + section.block{border-top:1px solid var(--line)}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;font:600 15px var(--f-body);text-decoration:none;border:1px solid transparent;transition:transform .15s,background .2s}
 .btn:hover{transform:translateY(-1px)}
-.btn.primary{background:#2563EB;color:#fff;box-shadow:0 10px 24px -10px rgba(37,99,235,.75)}
-.btn.primary:hover{background:#1D4ED8}
+.btn.primary{background:#7C3AED;color:#fff;box-shadow:0 10px 24px -10px rgba(124,58,237,.75)}
+.btn.primary:hover{background:#6D28D9}
 .btn.ghost{border-color:rgba(255,255,255,.25);color:var(--hero-fg)}
 .btn.ghost:hover{background:rgba(255,255,255,.08)}
 .btn svg{width:16px;height:16px}
@@ -170,13 +170,35 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .note{margin-top:14px;font-size:13px;color:var(--muted)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* ===== rich theme: violet gradients, generated artwork, banded sections ===== */
+.hero{background:linear-gradient(115deg,#05030f 0%,#100a2e 38%,#2a0f63 72%,#4c1d95 100%)}
+.hero::after{display:none}
+.hero::before{background:radial-gradient(720px 440px at 82% 18%,rgba(139,92,246,.32),transparent 70%),radial-gradient(620px 420px at 0% 100%,rgba(76,29,149,.32),transparent 70%)}
+.mesh{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.nav{background:rgba(6,4,18,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:rgba(196,181,253,.12)}
+.hero h1{font-weight:600;letter-spacing:-.035em}
+.label{letter-spacing:.18em}
+.head h2{font-weight:400;font-size:clamp(32px,4.2vw,50px);letter-spacing:-.03em}
+section.block + section.block{border-top:0}
+.btn.primary{background:linear-gradient(110deg,#6d28d9,#8b5cf6);border-color:transparent;color:#fff;box-shadow:0 14px 30px -14px rgba(124,58,237,.9)}
+.btn.primary:hover{background:linear-gradient(110deg,#5b21b6,#7c3aed)}
+footer{background:#05030f;border-top-color:rgba(196,181,253,.1)}.hero{padding-block:clamp(44px,6vw,84px) clamp(44px,6vw,76px)}
+.hstats{background:rgba(196,181,253,.16);border-color:rgba(196,181,253,.2)}
+.hstat{background:rgba(9,6,28,.72)}
+section.block{padding-block:clamp(32px,3.6vw,52px)}
+#approach{background:var(--sunk)}
+.result,.kit{background:linear-gradient(120deg,#0e0828 0%,#2a0f63 100%)}
+section.cta{background:linear-gradient(120deg,#05030f 0%,#160a3d 55%,#4c1d95 100%)}
+.case,.pr{box-shadow:0 1px 2px rgba(21,17,43,.04),0 14px 34px -20px rgba(76,29,149,.28)}
+.num{background:linear-gradient(135deg,#6d28d9,#8b5cf6)}
 </style>
 </head>
 <body>
 
 <nav class="nav" aria-label="Main">
   <div class="wrap">
-    <a class="mark" href="index.html" aria-label="Awais Ashraf, back to profile"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z" fill="#2563EB"/><path d="M16 14l-5 6 5 6M24 14l5 6-5 6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.5 13l-3 14" stroke="#BFD5FE" stroke-width="2.2" stroke-linecap="round"/></svg>Awais Ashraf</a>
+    <a class="mark" href="index.html" aria-label="Awais Ashraf, back to profile"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2.5l14 5.2v10.6c0 9.4-6 16.4-14 19.2C12 34.7 6 27.7 6 18.3V7.7z" fill="#7C3AED"/><path d="M16 14l-5 6 5 6M24 14l5 6-5 6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.5 13l-3 14" stroke="#DDD6FE" stroke-width="2.2" stroke-linecap="round"/></svg>Awais Ashraf</a>
     <ul id="navList">
       <li><a href="index.html">Profile Home</a></li>
       <li><a href="index.html#about">Who I Am</a></li>
@@ -198,6 +220,40 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </nav>
 
 <header class="hero">
+<canvas class="mesh" aria-hidden="true"></canvas>
+<script>
+(() => {
+  const c = document.currentScript.previousElementSibling;
+  if (!c || !c.getContext) return;
+  const draw = () => {
+    const host = c.parentElement, w = host.clientWidth, h = host.clientHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    if (!w || !h) return;
+    c.width = w * dpr; c.height = h * dpr;
+    const x = c.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, w, h);
+    let s = 20261022; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    const cell = w < 700 ? 72 : 112, cols = Math.ceil(w / cell) + 2, rows = Math.ceil(h / cell) + 2, P = [];
+    for (let j = 0; j < rows; j++) { P.push([]); for (let i = 0; i < cols; i++) P[j].push([(i - .5) * cell + (rnd() - .5) * cell * .85, (j - .5) * cell + (rnd() - .5) * cell * .85]); }
+    const wide = w >= 920;
+    const tri = (a, b, d) => {
+      const cx = (a[0] + b[0] + d[0]) / 3, cy = (a[1] + b[1] + d[1]) / 3, t = Math.min(1, Math.max(0, cx / w));
+      const fade = wide ? Math.min(1, Math.max(0, (t - .22) / .42)) : .26;
+      const pop = rnd() < .07; const hue = (pop ? (rnd() < .5 ? 300 : 222) : 250 + t * 32) + (rnd() - .5) * 16, light = 11 + t * 26 + (1 - cy / h) * 9 + rnd() * 16 + (pop ? 16 : 0);
+      if (fade <= 0) return;
+      x.beginPath(); x.moveTo(a[0], a[1]); x.lineTo(b[0], b[1]); x.lineTo(d[0], d[1]); x.closePath();
+      x.fillStyle = `hsla(${hue},74%,${light}%,${.82 * fade})`; x.fill();
+      x.strokeStyle = `rgba(196,181,253,${.16 * fade})`; x.lineWidth = 1; x.stroke();
+    };
+    for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+      const a = P[j][i], b = P[j][i + 1], d = P[j + 1][i], e = P[j + 1][i + 1];
+      if (rnd() > .5) { tri(a, b, e); tri(a, e, d); } else { tri(a, b, d); tri(b, e, d); }
+    }
+  };
+  let tm; window.addEventListener('resize', () => { clearTimeout(tm); tm = setTimeout(draw, 150); });
+  if (document.readyState === 'complete') draw(); else window.addEventListener('load', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  draw();
+})();
+</script>
   <div class="wrap">
     <div class="crumb"><a href="index.html">Awais Ashraf</a> / AI Playbook</div>
     <h1>AI-Driven QA That Turns <em>Days into Minutes</em></h1>
