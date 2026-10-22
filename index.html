@@ -409,8 +409,8 @@ section.block{padding-block:clamp(32px,3.6vw,52px)}
 .ts-list svg{width:20px;height:20px;fill:currentColor;flex:none}
 @media (max-width:560px){.ts-list{gap:12px 20px}.ts-list li{font-size:13px}.ts-list svg{width:18px;height:18px}}
 /* ===== career timeline ===== */
-.timeline{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative}
-.timeline::before{content:"";position:absolute;left:10%;right:10%;top:38px;height:2px;background:linear-gradient(90deg,var(--line),var(--accent))}
+.timeline{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:relative}
+.timeline::before{content:"";position:absolute;left:16.66%;right:16.66%;top:38px;height:2px;background:linear-gradient(90deg,var(--line),var(--accent))}
 .timeline li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;min-width:0}
 .ty{font:600 13px var(--f-body);letter-spacing:.08em;color:var(--accent-strong)}
 .tdot{width:16px;height:16px;border-radius:50%;margin:12px 0 14px;background:var(--surface);border:3px solid var(--accent);position:relative;z-index:1}
@@ -641,10 +641,8 @@ section.block{padding-block:clamp(32px,3.6vw,52px)}
       </div>
     </div>
     <ol class="timeline" aria-label="Career timeline">
-      <li><span class="ty">2016</span><span class="tdot"></span><b>BS Computer Science</b><small>The University of Lahore</small></li>
-      <li><span class="ty">2019</span><span class="tdot"></span><b>SQA Engineer</b><small>Cubic Solutions Inc.</small></li>
-      <li><span class="ty">2021</span><span class="tdot"></span><b>MS Computer Science</b><small>The University of Lahore</small></li>
-      <li><span class="ty">2022</span><span class="tdot"></span><b>Senior SQA Engineer</b><small>Motive (formerly KeepTruckin)</small></li>
+      <li><span class="ty">2019</span><span class="tdot"></span><b>SQA Engineer</b><small>Cubic Solutions Inc. · Lahore</small></li>
+      <li><span class="ty">2022</span><span class="tdot"></span><b>Senior SQA Engineer</b><small>Motive (formerly KeepTruckin) · Remote</small></li>
       <li class="now"><span class="ty">2026</span><span class="tdot"></span><b>Based in Dubai</b><small>Available immediately</small></li>
     </ol>    <div class="filters" id="filters" role="group" aria-label="Filter experience by focus"></div>
     <div class="jobs" id="jobs"></div>
