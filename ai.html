@@ -36,6 +36,36 @@
     window.gtag = function () { (window.__gaTest = window.__gaTest || []).push([...arguments]); };
   }
 })();
+</script><script>
+(() => {
+  const KEY = 'aaFlip', root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const get = () => { try { return sessionStorage.getItem(KEY); } catch (e) { return null; } };
+  const set = v => { try { v ? sessionStorage.setItem(KEY, v) : sessionStorage.removeItem(KEY); } catch (e) {} };
+  const isAi = p => /(^|\/)ai\.html$/.test(p);
+  const arrived = get();
+  if (arrived) {
+    set(null);
+    if (!reduce) {
+      root.classList.add('arrive', 'arrive-' + arrived);
+      setTimeout(() => root.classList.remove('arrive', 'arrive-forward', 'arrive-back'), 750);
+    }
+  }
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest && e.target.closest('a[href]'); if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    const url = new URL(a.getAttribute('href'), location.href); if (url.origin !== location.origin || url.pathname === location.pathname) return;
+    const dir = isAi(url.pathname) && !isAi(location.pathname) ? 'forward' : (!isAi(url.pathname) && isAi(location.pathname) ? 'back' : null);
+    if (!dir) return;
+    set(dir);
+    if (reduce) return;
+    e.preventDefault();
+    root.style.perspectiveOrigin = '50% ' + (window.scrollY + window.innerHeight / 2) + 'px';
+    root.classList.add('turning', 'turn-' + dir);
+    setTimeout(() => { location.href = url.href; }, 640);
+  });
+  window.addEventListener('pageshow', () => root.classList.remove('turning', 'turn-forward', 'turn-back'));
+})();
 </script><style>
 /* Same system as the profile page: navy hero, white case-study cards, one blue accent. */
 :root{
@@ -263,7 +293,19 @@ main:focus{outline:none}
 .fcol .fh{margin:0 0 4px;font:600 12px var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:#C4B5FD}
 .metric .num.num-text{font-size:clamp(30px,2.8vw,40px)!important;line-height:1.1;padding-top:8px}
 @media (max-width:1060px){.nav .icon-btn{width:44px;height:44px}}
-@media (max-width:760px){.fcol{gap:0}.fcol a{padding-block:9px}}</style>
+@media (max-width:760px){.fcol{gap:0}.fcol a{padding-block:9px}}
+/* ===== book page-turn between Profile and AI Playbook ===== */
+html.turning{background:#05030f;perspective:2400px}
+html.turning body{pointer-events:none;box-shadow:0 0 80px rgba(0,0,0,.6)}
+html.turn-forward body{transform-origin:left center;animation:bookTurnForward .7s cubic-bezier(.5,.05,.3,1) forwards}
+html.turn-back body{transform-origin:right center;animation:bookTurnBack .7s cubic-bezier(.5,.05,.3,1) forwards}
+@keyframes bookTurnForward{0%{transform:rotateY(0);filter:brightness(1)}55%{filter:brightness(.85)}100%{transform:rotateY(-98deg);filter:brightness(.45)}}
+@keyframes bookTurnBack{0%{transform:rotateY(0);filter:brightness(1)}55%{filter:brightness(.85)}100%{transform:rotateY(98deg);filter:brightness(.45)}}
+html.arrive{background:#05030f;perspective:2400px}
+html.arrive-forward body{transform-origin:right center;animation:bookArrive .65s cubic-bezier(.2,.7,.2,1) both}
+html.arrive-back body{transform-origin:left center;animation:bookArriveBack .65s cubic-bezier(.2,.7,.2,1) both}
+@keyframes bookArrive{0%{transform:rotateY(14deg) scale(.96);filter:brightness(.5)}100%{transform:none;filter:none}}
+@keyframes bookArriveBack{0%{transform:rotateY(-14deg) scale(.96);filter:brightness(.5)}100%{transform:none;filter:none}}</style>
 </head>
 <body>
 
