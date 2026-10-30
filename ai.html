@@ -214,6 +214,28 @@ footer{background:var(--hero-bg);color:var(--hero-muted);padding-block:22px 32px
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .note{margin-top:14px;font-size:13px;color:var(--muted)}
 
+/* open-source agents */
+.oss-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:18px 22px;border-radius:16px;background:linear-gradient(120deg,#0e0828 0%,#2a0f63 100%);color:var(--hero-fg)}
+.oss-stats{display:flex;flex-wrap:wrap;gap:12px 32px}
+.oss-stats b{display:block;font:800 clamp(26px,3vw,34px)/1.05 var(--f-display);letter-spacing:-.02em;color:#fff}
+.oss-stats span{font-size:13.5px;color:var(--hero-muted)}
+.agents{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media (max-width:1180px){.agents{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.agents{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.agents{grid-template-columns:1fr}}
+.agent{display:flex;flex-direction:column;padding:16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);box-shadow:0 1px 2px rgba(21,17,43,.04),0 14px 34px -20px rgba(76,29,149,.28)}
+.agent-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.agent .num{width:28px;height:28px;border-radius:8px;font-size:13px}
+.agent h3{margin-top:12px;font-size:16px;line-height:1.3}
+.agent p{margin:6px 0 12px;font-size:14px;line-height:1.5;color:var(--muted)}
+.agent code{margin-top:auto;font:500 12px var(--f-mono);color:var(--accent-strong)}
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:12px}
+.pipe .step{position:relative}
+.pipe .step + .step::before{content:"";position:absolute;left:-17px;top:50%;width:8px;height:8px;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:translateY(-50%) rotate(45deg)}
+@media (max-width:760px){.pipe{grid-template-columns:1fr;gap:16px}.pipe .step + .step::before{left:22px;top:-13px;transform:rotate(135deg)}}
+.oss > .chips{margin-top:12px}
+.oss > .chips span{background:var(--surface);border:1px solid var(--line)}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
 /* ===== rich theme: violet gradients, generated artwork, banded sections ===== */
@@ -232,7 +254,7 @@ footer{background:#05030f;border-top-color:rgba(196,181,253,.1)}.hero{padding-bl
 .hstats{background:rgba(196,181,253,.16);border-color:rgba(196,181,253,.2)}
 .hstat{background:rgba(9,6,28,.72)}
 section.block{padding-block:clamp(32px,3.6vw,52px)}
-#approach{background:var(--sunk)}
+#agents,#toolkit{background:var(--sunk)}
 .result,.kit{background:linear-gradient(120deg,#0e0828 0%,#2a0f63 100%)}
 section.cta{background:linear-gradient(120deg,#05030f 0%,#160a3d 55%,#4c1d95 100%)}
 .case,.pr{box-shadow:0 1px 2px rgba(21,17,43,.04),0 14px 34px -20px rgba(76,29,149,.28)}
@@ -515,6 +537,50 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
   </div>
 </section>
 
+<section class="block" id="agents">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Open Source</span>
+      <h2>Ten QA Agents Built on Claude</h2>
+      <p>A public Python project with an agent for each stage of QA work, from refining a user story to the release decision. Plain code computes the facts, such as boundary values, flip rates and quality gates. Claude adds the judgment, and guardrails in code have the final say.</p>
+    </div>
+    <div class="oss">
+      <div class="oss-bar">
+        <div class="oss-stats">
+          <div><b>10</b><span>agents, one per QA stage</span></div>
+          <div><b>38</b><span>automated tests in CI</span></div>
+          <div><b>Demo Mode</b><span>runs without an API key</span></div>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/AwaisAshrafQA/qa-ai-agents" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+          <a class="btn ghost" href="https://github.com/AwaisAshrafQA/qa-ai-agents/tree/main/sample-reports" target="_blank" rel="noopener">Sample Reports</a>
+        </div>
+      </div>
+
+      <ol class="agents">
+        <li class="agent"><div class="agent-top"><span class="num">1</span><span class="tag">Plan</span></div><h3>Requirement Review</h3><p>Finds missing acceptance criteria, edge cases and unclear wording in user stories.</p><code>requirement-review</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">2</span><span class="tag">Plan</span></div><h3>Test Case Generation</h3><p>Writes positive, negative, boundary and integration cases, probing every limit in the requirement.</p><code>test-case-generation</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">3</span><span class="tag">Design</span></div><h3>API Contract</h3><p>Reads OpenAPI specs and proposes request validations, negative tests and schema checks.</p><code>api-contract</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">4</span><span class="tag">Build</span></div><h3>Automation Code Review</h3><p>Flags hardcoded data, weak assertions, unstable locators, fixed waits and duplicated code.</p><code>code-review</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">5</span><span class="tag">Triage</span></div><h3>Failure Analysis</h3><p>Sorts failures into app defect, automation issue, test data or environment, with evidence.</p><code>failure-analysis</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">6</span><span class="tag">Triage</span></div><h3>Flaky Test Analysis</h3><p>Uses run history and flip rates to find flaky tests, their root causes and fixes.</p><code>flaky-tests</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">7</span><span class="tag">Triage</span></div><h3>Defect Drafting</h3><p>Turns logs, screenshots and API responses into a bug report with steps to reproduce.</p><code>defect-drafting</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">8</span><span class="tag">Release</span></div><h3>Regression Selection</h3><p>Maps code changes and defect history to a ranked, risk-based regression run.</p><code>regression-selection</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">9</span><span class="tag">Report</span></div><h3>Test Execution Report</h3><p>Combines results, defect status and progress into a two-minute status report.</p><code>execution-report</code></li>
+        <li class="agent"><div class="agent-top"><span class="num">10</span><span class="tag">Release</span></div><h3>Release Readiness</h3><p>Checks quality gates, open defects and risks, and makes a go or no-go recommendation.</p><code>release-readiness</code></li>
+      </ol>
+
+      <div class="pipe" aria-label="How every agent works">
+        <div class="step"><i>1</i>Your files: reports, logs, specs, code</div>
+        <div class="step"><i>2</i>Python computes the exact facts</div>
+        <div class="step"><i>3</i>Claude returns a validated, structured answer</div>
+        <div class="step human"><i>4</i>Guardrails check it, then you review</div>
+      </div>
+      <div class="chips"><span>Python</span><span>Claude API</span><span>Anthropic SDK</span><span>Structured Outputs</span><span>Pydantic</span><span>pytest</span><span>GitHub Actions</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="approach">
   <div class="wrap">
     <div class="head">
@@ -538,9 +604,9 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
     </div>
     <div class="kit">
       <h3>Tools</h3>
-      <div class="chips"><span>Claude Code</span><span>GitHub Copilot</span><span>Cursor</span><span>ChatGPT</span><span>Google Gemini</span><span>OpenAI APIs (LLMs)</span><span>LangChain</span><span>CrewAI</span><span>Microsoft AutoGen</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Azure</span></div>
+      <div class="chips"><span>Claude Code</span><span>Claude API (Anthropic SDK)</span><span>GitHub Copilot</span><span>Cursor</span><span>ChatGPT</span><span>Google Gemini</span><span>OpenAI APIs (LLMs)</span><span>LangChain</span><span>CrewAI</span><span>Microsoft AutoGen</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Azure</span></div>
       <h3>Techniques</h3>
-      <div class="chips"><span>Model Context Protocol (MCP)</span><span>Prompt Engineering</span><span>Agentic Workflows</span><span>Multi-Agent Workflows</span><span>RAG Pipelines</span><span>Embeddings</span><span>Vector Database (Pinecone)</span><span>LLM Evaluation</span><span>Self-Healing Tests</span><span>Human-in-the-Loop Validation</span><span>AI-Assisted Defect Triage</span><span>AI Test Data Generation</span></div>    </div>
+      <div class="chips"><span>Model Context Protocol (MCP)</span><span>Prompt Engineering</span><span>Structured Outputs</span><span>Agentic Workflows</span><span>Multi-Agent Workflows</span><span>RAG Pipelines</span><span>Embeddings</span><span>Vector Database (Pinecone)</span><span>LLM Evaluation</span><span>Self-Healing Tests</span><span>Human-in-the-Loop Validation</span><span>AI-Assisted Defect Triage</span><span>AI Test Data Generation</span></div>    </div>
   </div>
 </section>
 </main>
@@ -613,6 +679,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
     else if (href.startsWith('tel:')) gtag('event', 'phone_click', { link_location: loc });
     else if (href.includes('linkedin.com')) gtag('event', 'linkedin_click', { link_location: loc });
     else if (/(^|\/)ai\.html/.test(href)) gtag('event', 'ai_playbook_click', { link_location: loc });
+    else if (href.includes('github.com/AwaisAshrafQA/qa-ai-agents')) gtag('event', 'github_click', { link_location: loc });
     else if (el.dataset.copy) gtag('event', 'contact_copy', { field: el.dataset.copy.replace('v-', ''), link_location: loc });
   });
   if ('IntersectionObserver' in window) {
