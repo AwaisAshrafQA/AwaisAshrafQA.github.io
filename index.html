@@ -936,7 +936,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
       ${s.lede ? `<p class="lede">${s.lede} <a class="more" href="ai.html">See My AI Projects →</a></p>` : ''}
       <div class="tags">${s.t.map(x => `<span>${tc(x)}</span>`).join('')}</div>
     </div>`).join('');
-  $('#domains').innerHTML = `<h3>Industries I've Tested In<span class="count">${DOMAINS.length}</span></h3><div class="tags">${DOMAINS.map(x => `<span>${tc(x)}</span>`).join('')}</div>`;
+  $('#domains').innerHTML = `<h3>Industry Experience</h3><div class="tags">${DOMAINS.map(x => `<span>${tc(x)}</span>`).join('')}</div>`;
   const total = SK.reduce((a, s) => a + s.t.length, 0);
   const out = $('#searchOut');
   const idle = `${total} skills across ${SK.length} areas`;
