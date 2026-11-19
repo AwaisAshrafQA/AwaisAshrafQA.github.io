@@ -919,7 +919,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
   const KEEP = new Set(['k6', 'axe', 'pgvector,', 'gRPC']);
   const tc = s => s.split(' ').map((w, i) => KEEP.has(w) || (i && SMALL.has(w)) ? w : w.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('-')).join(' ');
   const SK = [
-    { n: 'AI & LLM Systems', feature: true, lede: 'Production LLM agents and Claude Code skills that turned days of manual QA work into minutes.', t: ['Claude Code & Skills', 'Model Context Protocol (MCP)', 'OpenAI APIs', 'LangChain', 'CrewAI', 'AutoGen', 'Gemini', 'GitHub Copilot', 'Cursor', 'Agentic & multi-agent workflows', 'RAG pipelines', 'Embeddings', 'Vector database (Pinecone)', 'LLM evaluation', 'Prompt engineering', 'Self-healing tests', 'Human-in-the-loop validation'] },
+    { n: 'AI & LLM Systems', feature: true, lede: 'Production LLM agents and Claude Code skills that turned days of manual QA work into minutes.', t: ['Claude Code & Skills', 'Model Context Protocol (MCP)', 'OpenAI APIs', 'LangChain', 'CrewAI', 'AutoGen', 'Gemini', 'GitHub Copilot', 'Cursor', 'Agentic & multi-agent workflows', 'RAG pipelines', 'Embeddings', 'Vector database (Pinecone)', 'LLM evaluation', 'Prompt engineering', 'Self-healing tests', 'AI root cause analysis', 'Automated fix PRs', 'Scenario replication & permutations', 'Human-in-the-loop validation'] },
     { n: 'Languages', t: ['Python', 'Java', 'JavaScript', 'TypeScript', 'C#', 'SQL'] },
     { n: 'Backend & APIs', t: ['FastAPI', 'Flask', 'Node.js/Express', 'REST', 'GraphQL', 'gRPC', 'Webhooks', 'OAuth 2.0', 'SSO'] },
     { n: 'Architecture & delivery', t: ['Solution architecture', 'Internal tools', 'Microservices', 'Message queues (Kafka)', 'Containerised deployment', 'CI/CD pipeline design', 'Requirements to production'] },
@@ -929,7 +929,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
     { n: 'Testing practice', t: ['Test strategy', 'Risk-based testing', 'Functional', 'Regression', 'Integration', 'UAT', 'Mobile', 'Low-code (Power Apps)', 'JMeter', 'k6', 'LoadRunner', 'OWASP ZAP', 'Burp Suite', 'Accessibility (WCAG 2.1/2.2)'] },
     { n: 'Mobile & device cloud', t: ['Android Studio', 'Xcode', 'ADB', 'Espresso', 'XCUITest', 'TestFlight', 'Firebase App Distribution', 'BrowserStack', 'LambdaTest', 'Sauce Labs', 'Blazor & .NET MAUI apps'] },
     { n: 'Observability', t: ['Datadog', 'Splunk', 'Grafana', 'Sentry', 'Rollbar', 'OpsGenie', 'TrackJS', 'Firebase'] },
-    { n: 'Databases', t: ['MySQL', 'PostgreSQL', 'Oracle', 'MongoDB', 'Redis'] },
+    { n: 'Databases', t: ['MySQL', 'PostgreSQL', 'Oracle', 'MongoDB', 'Redis', 'Snowflake'] },
     { n: 'Process & tools', t: ['Agile/Scrum', 'Jira', 'TestRail', 'Xray', 'Confluence'] },
   ];
   const DOMAINS = ['Logistics & fleet', 'IoT & telematics', 'Fintech', 'E-commerce & retail', 'AI products', 'ERP/CRM', 'Travel & booking', 'HealthTech', 'Real estate', 'Telecom', 'Delivery & mobility', 'Crypto/Web3', 'EdTech', 'Media & publishing', 'Social & messaging'];

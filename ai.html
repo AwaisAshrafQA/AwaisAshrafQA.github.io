@@ -408,7 +408,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
     <h1>AI-Driven QA That Turns <em>Days into Minutes</em></h1>
     <p class="lead">At Motive, I designed, built and ran AI tooling in production: <strong>custom Claude Code skills and LLM agents</strong> that automate the API pipeline, the weekly release process, test data generation and bug triage, deployed as containerised services on AWS and Azure and turning days of manual effort into minutes.</p>
     <div class="hstats">
-      <div class="hstat"><b>Days <em>→</em> Minutes</b><span>HOS test data with a custom Claude Code skill</span></div>
+      <div class="hstat"><b>Days <em>→</em> Minutes</b><span>to reproduce a driver's issue with the HOS Analyzer skills</span></div>
       <div class="hstat"><b>~40<em>%</em></b><span>less defect triage time per sprint with LLM agents</span></div>
       <div class="hstat"><b>100,000<em>+</em></b><span>businesses on the platform where I did this work</span></div>
     </div>
@@ -451,16 +451,28 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
       <article class="case">
         <div>
           <div class="case-top"><span class="num">2</span><span class="tag">Domain Skill</span></div>
-          <h3>HOS Analyzer: Compliance Test Data in Minutes</h3>
+          <h3>HOS Analyzer: From Production Issue to Reviewed Fix</h3>
           <dl>
-            <dt>The Problem</dt><dd>Testing ELD and Hours of Service (HOS) features for FMCSA compliance requires realistic driver-log data, which took days to build by hand.</dd>
-            <dt>What I Built</dt><dd>A production <strong>HOS Analyzer</strong> that encodes FMCSA ELD/HOS compliance rules to generate realistic test data on demand. Alongside it, I built <strong>skills that trace UI and backend issues to root cause and propose fixes for developer review</strong>.</dd>
-            <dt>The Result</dt><dd>HOS test data creation dropped from days to minutes, and developers received root-cause analysis and proposed fixes to review, shortening their turnaround.</dd>
+            <dt>The Problem</dt><dd>Reproducing a driver's Hours of Service (HOS) problem was the slowest part of fixing it. Recreating their data in a test environment took hours, often days, and edge cases had to be hit by trial again and again before anyone could start on a fix.</dd>
+            <dt>What I Built</dt><dd>A production <strong>HOS Analyzer</strong> made of a chain of internal <strong>Claude Code skills</strong>, each with one job. From a single request it gathers production signals about the driver's scenario (Datadog, Snowflake, the backend and Firebase), rebuilds the scenario and replicates it in the test environment, and creates permutations to explore the edge cases. It then runs each one against the code, traces the root cause, writes a fix and <strong>raises a pull request for developer review</strong>.</dd>
+            <dt>The Result</dt><dd>Reproducing a driver's scenario went from days to minutes. Issues are caught and understood sooner, QA can point to where the issue lies in the code rather than only report a symptom, and developers receive a fix PR to review instead of starting from scratch.</dd>
           </dl>
         </div>
         <div class="side">
-          <div class="result"><b>Days → Minutes</b><span>to produce HOS test data</span></div>
-          <div class="chips"><span>Claude Code</span><span>ELD / HOS</span><span>FMCSA Compliance</span><span>Test Data Generation</span></div>
+          <div class="flow" aria-label="HOS Analyzer flow">
+            <div class="flow-title">From Issue to Fix</div>
+            <div class="step"><i>1</i>Gather production signals</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step"><i>2</i>Rebuild and replicate the scenario in test</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step"><i>3</i>Run permutations against the code</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step"><i>4</i>Trace root cause, write fix, raise PR</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step human"><i>5</i>A developer reviews the PR</div>
+          </div>
+          <div class="result"><b>Days → Minutes</b><span>to reproduce a driver's scenario</span></div>
+          <div class="chips"><span>Claude Code Skills</span><span>Agentic Workflows</span><span>Datadog</span><span>Snowflake</span><span>Firebase</span><span>Scenario Permutations</span><span>AI Root Cause Analysis</span><span>Automated Fix PRs</span><span>ELD / HOS</span></div>
         </div>
       </article>
 
