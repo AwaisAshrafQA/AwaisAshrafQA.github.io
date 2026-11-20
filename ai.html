@@ -462,7 +462,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
     <div class="head">
       <span class="label">Projects</span>
       <h2>What I've Built</h2>
-      <p>Five pieces of AI work from my time as Senior QA Automation Engineer at Motive, a US fleet-management platform serving 100,000+ businesses.</p>
+      <p>Six pieces of AI work from my time as Senior QA Automation Engineer at Motive, a US fleet-management platform serving 100,000+ businesses.</p>
     </div>
 
     <div class="cases">
@@ -491,7 +491,36 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
 
       <article class="case">
         <div>
-          <div class="case-top"><span class="num">2</span><span class="tag">Domain Skill</span></div>
+          <div class="case-top"><span class="num">2</span><span class="tag">Claude Code Skills</span></div>
+          <h3>API Automation Pipeline: From Spec to Reviewed Tests</h3>
+          <dl>
+            <dt>The Problem</dt><dd>Every new or changed endpoint meant writing REST Assured tests and test data by hand, spec changes left existing tests out of date, and a large share of API checks were still done manually each sprint.</dd>
+            <dt>What I Built</dt><dd>A set of <strong>Claude Code skills</strong> that starts from a new endpoint, a Swagger/OpenAPI change, a Jira ticket or a direct request. It reads the spec, plans positive, negative and boundary coverage, generates test data, and writes or updates <strong>REST Assured tests with JSON Schema contract checks</strong>. The tests run in CI and validate data across databases, queues and microservices; failures are triaged, and the tests go up as a <strong>pull request for review</strong>.</dd>
+            <dt>The Result</dt><dd>About 60% less manual API testing, days of effort turned into minutes, and a suite that stays in step with the API spec.</dd>
+          </dl>
+        </div>
+        <div class="side">
+          <div class="flow" aria-label="API automation pipeline flow">
+            <div class="flow-title">From Spec to Tests</div>
+            <div class="step"><i>1</i>Read the spec and plan coverage</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step"><i>2</i>Generate data, write or update tests</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step"><i>3</i>Run in CI with data validation</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step"><i>4</i>Analyse failures, raise a PR</div>
+            <svg class="down" viewBox="0 0 12 10" aria-hidden="true"><path d="M6 0v8M2 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="step human"><i>5</i>A reviewer approves and merges</div>
+          </div>
+          <div class="result"><b>~60%</b><span>less manual API testing</span></div>
+          <a class="more-link" href="#api-pipeline">See the full workflow ↓</a>
+          <div class="chips"><span>Claude Code Skills</span><span>REST Assured</span><span>Swagger / OpenAPI</span><span>JSON Schema</span><span>Test Data Generation</span><span>CI/CD</span><span>Data Validation</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <div class="case-top"><span class="num">3</span><span class="tag">Domain Skill</span></div>
           <h3>HOS Analyzer: From Production Issue to Reviewed Fix</h3>
           <dl>
             <dt>The Problem</dt><dd>Reproducing a driver's Hours of Service (HOS) problem was the slowest part of fixing it. Recreating their data in a test environment took hours, often days, and edge cases had to be hit by trial again and again before anyone could start on a fix.</dd>
@@ -520,7 +549,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
 
       <article class="case">
         <div>
-          <div class="case-top"><span class="num">3</span><span class="tag">AI Agents</span></div>
+          <div class="case-top"><span class="num">4</span><span class="tag">AI Agents</span></div>
           <h3>AI Agents for Defect Triage and Regression Analysis</h3>
           <dl>
             <dt>The Problem</dt><dd>Working out why tests failed meant digging through logs and writing up defects by hand, every sprint.</dd>
@@ -545,7 +574,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
 
       <article class="case">
         <div>
-          <div class="case-top"><span class="num">4</span><span class="tag">Architecture &amp; Deployment</span></div>
+          <div class="case-top"><span class="num">5</span><span class="tag">Architecture &amp; Deployment</span></div>
           <h3>Designed and Deployed to Production on AWS and Azure</h3>
           <dl>
             <dt>The Problem</dt><dd>AI tools and test frameworks need to run reliably for the whole team, not only on one engineer's machine.</dd>
@@ -569,7 +598,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
       </article>
       <article class="case">
         <div>
-          <div class="case-top"><span class="num">5</span><span class="tag">Multi-Agent</span></div>
+          <div class="case-top"><span class="num">6</span><span class="tag">Multi-Agent</span></div>
           <h3>Multi-Agent Workflows for Test Planning</h3>
           <dl>
             <dt>The Idea</dt><dd>Some QA work has several stages that hand off to each other: planning what to test, preparing data, then analysing the regression results.</dd>
@@ -587,6 +616,115 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
           <div class="chips"><span>CrewAI</span><span>Microsoft AutoGen</span><span>Multi-Agent Orchestration</span></div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="api-pipeline">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Deep Dive</span>
+      <h2>How the API Automation Pipeline Works</h2>
+      <p>A set of Claude Code skills that takes an API change from spec to reviewed, running tests. It writes new tests, updates existing ones when the spec changes, and checks the data behind every response.</p>
+    </div>
+
+    <p class="hos-swipe">Swipe sideways to see the full workflow →</p>
+    <div class="hos-stage">
+      <svg viewBox="0 0 1000 520" role="img" aria-label="API automation pipeline: a trigger such as a new endpoint, a spec change, a Jira ticket or a request starts it; Claude Code skills read the spec, plan coverage, generate test data and write or update REST Assured tests with JSON Schema contract checks; the tests run in CI and validate data in databases, queues and microservices; failures are analysed, with test problems looped back to the tests; a pull request is raised and a human reviews and merges it; the tests then run on every build.">
+        <defs>
+          <linearGradient id="agv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A1A6B"/><stop offset="1" stop-color="#160E3E"/></linearGradient>
+          <linearGradient id="agp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B1F55"/><stop offset="1" stop-color="#2A0F3A"/></linearGradient>
+          <linearGradient id="aga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A3208"/><stop offset="1" stop-color="#2A1B05"/></linearGradient>
+          <linearGradient id="agc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B3A4A"/><stop offset="1" stop-color="#0A1F36"/></linearGradient>
+          <linearGradient id="agr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+          <marker id="aav" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#A78BFA"/></marker>
+          <marker id="aaa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F59E0B"/></marker>
+          <marker id="aap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F472B6"/></marker>
+          <marker id="aac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22D3EE"/></marker>
+          <marker id="aag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34D399"/></marker>
+        </defs>
+
+        <rect x="40" y="12" width="200" height="50" rx="25" fill="#0E0828" stroke="#22D3EE" stroke-width="1.5"/>
+        <circle cx="64" cy="37" r="5" fill="#22D3EE"/><text class="ht" x="78" y="33" style="font-size:14px">API change</text><text class="hm" x="78" y="49">TRIGGER</text>
+        <path class="hflow" d="M240 37H278" stroke="#22D3EE" marker-end="url(#aac)"/>
+
+        <rect x="280" y="12" width="680" height="50" rx="14" fill="#0E0828" stroke="url(#agr)" stroke-width="1.5"/>
+        <text class="hm" x="298" y="32" style="fill:#C4B5FD">STARTS FROM ANY OF</text>
+        <g style="font:500 12px 'IBM Plex Mono',monospace;fill:#E3DDFB">
+          <text x="298" y="51">New endpoint</text><text x="450" y="51">Swagger / OpenAPI change</text><text x="660" y="51">Jira ticket</text><text x="790" y="51">Ask Claude Code</text>
+        </g>
+        <path class="hflow" d="M860 62V90" stroke="#A78BFA" marker-end="url(#aav)"/>
+
+        <g class="hnode" style="animation-delay:0s"><rect x="760" y="92" width="200" height="78" rx="16" fill="url(#agv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="774" y="104" width="24" height="22" rx="7" fill="url(#agr)"/><text class="hn" x="786" y="119" text-anchor="middle">1</text><text class="ht" x="806" y="120">Read the Spec</text><text class="hm" x="778" y="144">AI · PARSES API</text><text class="hs" x="778" y="161">Endpoints, schemas, rules</text></g>
+        <g class="hnode" style="animation-delay:.6s"><rect x="520" y="92" width="200" height="78" rx="16" fill="url(#agv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="534" y="104" width="24" height="22" rx="7" fill="url(#agr)"/><text class="hn" x="546" y="119" text-anchor="middle">2</text><text class="ht" x="566" y="120">Plan Coverage</text><text class="hm" x="538" y="144">AI · DESIGNS CASES</text><text class="hs" x="538" y="161">Positive, negative, boundary</text></g>
+        <g class="hnode" style="animation-delay:1.2s"><rect x="280" y="92" width="200" height="78" rx="16" fill="url(#agv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="294" y="104" width="24" height="22" rx="7" fill="url(#agr)"/><text class="hn" x="306" y="119" text-anchor="middle">3</text><text class="ht" x="326" y="120">Generate Data</text><text class="hm" x="298" y="144">AI · BUILDS PAYLOADS</text><text class="hs" x="298" y="161">Requests and test data</text></g>
+        <g class="hnode" style="animation-delay:1.8s"><rect x="40" y="92" width="200" height="78" rx="16" fill="url(#agv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="54" y="104" width="24" height="22" rx="7" fill="url(#agr)"/><text class="hn" x="66" y="119" text-anchor="middle">4</text><text class="ht" x="86" y="120">Write / Update</text><text class="hm" x="58" y="144">AI · REST ASSURED</text><text class="hs" x="58" y="161">Tests + JSON Schema checks</text></g>
+        <g class="hnode" style="animation-delay:2.4s"><rect x="40" y="218" width="200" height="78" rx="16" fill="url(#agc)" stroke="#22D3EE" stroke-width="2"/><rect x="54" y="230" width="24" height="22" rx="7" fill="#22D3EE"/><text class="hn" x="66" y="245" text-anchor="middle">5</text><text class="ht" x="86" y="246">Run in CI</text><text class="hm" x="58" y="270">JENKINS · GHA · AZURE</text><text class="hs" x="58" y="287">Checks DB, queues, services</text></g>
+        <g class="hnode" style="animation-delay:3s"><rect x="280" y="218" width="200" height="78" rx="16" fill="url(#agp)" stroke="#F472B6" stroke-width="2"/><rect x="294" y="230" width="24" height="22" rx="7" fill="#F472B6"/><text class="hn" x="306" y="245" text-anchor="middle">6</text><text class="ht" x="326" y="246">Analyse Failures</text><text class="hm" x="298" y="270" style="fill:#F9A8D4">AI · TRIAGES</text><text class="hs" x="298" y="287">API defect or test issue</text></g>
+        <g class="hnode" style="animation-delay:3.6s"><rect x="520" y="218" width="200" height="78" rx="16" fill="url(#agv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="534" y="230" width="24" height="22" rx="7" fill="url(#agr)"/><text class="hn" x="546" y="245" text-anchor="middle">7</text><text class="ht" x="566" y="246">Raise PR</text><text class="hm" x="538" y="270">AI · PUSHES TESTS</text><text class="hs" x="538" y="287">New and updated tests</text></g>
+        <g class="hnode" style="animation-delay:4.2s"><rect x="760" y="218" width="200" height="78" rx="16" fill="url(#aga)" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6 4"/><rect x="774" y="230" width="24" height="22" rx="7" fill="#F59E0B"/><text class="hn" x="786" y="245" text-anchor="middle">8</text><text class="ht" x="806" y="246" style="fill:#FCD34D">Human Review</text><text class="hm" x="778" y="270" style="fill:#FBBF24">GATE · REVIEW + MERGE</text><text class="hs" x="778" y="287">A reviewer approves the PR</text></g>
+        <g class="hnode" style="animation-delay:4.8s"><rect x="760" y="344" width="200" height="78" rx="16" fill="#0E2A2A" stroke="#34D399" stroke-width="2"/><text class="ht" x="778" y="372" style="fill:#6EE7B7">Runs Every Build</text><text class="hm" x="778" y="396" style="fill:#6EE7B7">IN THE REGRESSION SUITE</text><text class="hs" x="778" y="413">Contract and data checks</text></g>
+        <g class="hnode" style="animation-delay:5.4s"><rect x="280" y="344" width="200" height="78" rx="16" fill="url(#agp)" stroke="#F472B6" stroke-width="1.5"/><text class="ht" x="298" y="372">API Defect Found</text><text class="hm" x="298" y="396" style="fill:#F9A8D4">REPORTED WITH EVIDENCE</text><text class="hs" x="298" y="413">Request, response, data</text></g>
+
+        <path class="hflow" d="M758 131H722" stroke="#A78BFA" marker-end="url(#aav)"/>
+        <path class="hflow" d="M518 131H482" stroke="#A78BFA" marker-end="url(#aav)"/>
+        <path class="hflow" d="M278 131H242" stroke="#A78BFA" marker-end="url(#aav)"/>
+        <path class="hflow" d="M140 170V216" stroke="#22D3EE" marker-end="url(#aac)"/>
+        <path class="hflow" d="M240 257H278" stroke="#F472B6" marker-end="url(#aap)"/>
+        <path class="hflow" d="M330 216C330 196 200 196 200 172" stroke="#22D3EE" marker-end="url(#aac)"/>
+        <text class="hm" x="346" y="200" style="fill:#67E8F9">TEST ISSUE? FIX AND RERUN</text>
+        <path class="hflow" d="M380 296V342" stroke="#F472B6" marker-end="url(#aap)"/>
+        <path class="hflow" d="M480 257H518" stroke="#A78BFA" marker-end="url(#aav)"/>
+        <path class="hflow" d="M720 257H758" stroke="#F59E0B" marker-end="url(#aaa)"/>
+        <path class="hflow" d="M860 296V342" stroke="#34D399" marker-end="url(#aag)"/>
+
+        <rect x="40" y="450" width="920" height="56" rx="12" fill="#0E0828" stroke="url(#agr)" stroke-width="1.5"/>
+        <text class="hm" x="58" y="473" style="fill:#C4B5FD">SPEC CHANGES FEED STRAIGHT BACK IN</text>
+        <text class="hs" x="58" y="494" style="font-size:12px">When the Swagger/OpenAPI spec changes, the same skills update the existing tests, so the suite never drifts from the API.</text>
+      </svg>
+      <div class="hos-leg">
+        <span><i style="background:#8B5CF6"></i>AI skill</span>
+        <span><i style="background:#22D3EE"></i>Run and iterate</span>
+        <span><i style="background:#F472B6"></i>Failure analysis</span>
+        <span><i style="background:#F59E0B"></i>Human review</span>
+        <span><i style="background:#34D399"></i>Outcome</span>
+      </div>
+    </div>
+
+    <div class="hos-ba">
+      <div class="hos-box before">
+        <h3>Before</h3>
+        <ul>
+          <li>Every new or changed endpoint meant writing REST Assured tests and test data by hand.</li>
+          <li>Spec changes left existing tests out of date until someone noticed a failure.</li>
+          <li>A large share of API checks were still done manually each sprint.</li>
+        </ul>
+      </div>
+      <div class="hos-box after">
+        <h3>After <b>~60%</b></h3>
+        <ul>
+          <li>Less manual API testing, with days of effort turned into minutes.</li>
+          <li>Tests are generated and kept in step with the Swagger/OpenAPI spec.</li>
+          <li>Every response is checked against its contract and the data behind it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ol class="hos-steps">
+      <li><b>Read the Spec</b><span>Reads the Swagger/OpenAPI definition or the endpoint being changed: paths, schemas and validation rules.</span></li>
+      <li><b>Plan Coverage</b><span>Lists positive, negative and boundary cases for each endpoint before any code is written.</span></li>
+      <li><b>Generate Data</b><span>Creates the request payloads and the test data each case needs.</span></li>
+      <li><b>Write or Update Tests</b><span>Writes REST Assured tests with JSON Schema contract checks, and updates existing tests when the spec changes.</span></li>
+      <li><b>Run in CI</b><span>Runs the tests in Jenkins, GitHub Actions or Azure DevOps and validates data across databases, queues and microservices.</span></li>
+      <li class="rc"><b>Analyse Failures</b><span>Separates real API defects from test or data problems; test issues loop back to be fixed.</span></li>
+      <li><b>Raise PR</b><span>Pushes the new and updated tests to the repository as a pull request.</span></li>
+      <li class="pr"><b>Human Review</b><span>A reviewer checks the tests and merges them into the regression suite.</span></li>
+    </ol>
+
+    <div class="hos-out">
+      <div><h3>Less Manual Testing</h3><p>About 60% less manual API testing, freeing time for exploratory and risk-based work.</p></div>
+      <div><h3>Tests Stay Current</h3><p>Spec changes trigger test updates, so the suite matches the API instead of drifting from it.</p></div>
+      <div><h3>Beyond the Response</h3><p>Contract checks plus data validation in databases, queues and microservices catch issues a status code would hide.</p></div>
     </div>
   </div>
 </section>
