@@ -214,6 +214,47 @@ footer{background:var(--hero-bg);color:var(--hero-muted);padding-block:22px 32px
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .note{margin-top:14px;font-size:13px;color:var(--muted)}
 
+/* HOS Analyzer deep dive */
+.hos-stage{border-radius:20px;background:linear-gradient(160deg,#130C33,#0A0620);border:1px solid rgba(167,139,250,.25);padding:14px;overflow-x:auto;box-shadow:0 18px 50px -24px rgba(76,29,149,.55)}
+.hos-stage svg{display:block;min-width:900px;width:100%;height:auto}
+.hos-stage .ht{font:700 15px var(--f-display);fill:#fff}
+.hos-stage .hs{font:400 11.5px var(--f-body);fill:#C9C0EE}
+.hos-stage .hm{font:500 10px var(--f-mono);letter-spacing:1.1px;fill:#22D3EE}
+.hos-stage .hn{font:800 12px var(--f-display);fill:#0A0620}
+.hflow{fill:none;stroke-width:2.4;stroke-dasharray:7 7;animation:hdash 1.1s linear infinite}
+.hnode{animation:hglow 7.2s ease-in-out infinite}
+@keyframes hdash{to{stroke-dashoffset:-14}}
+@keyframes hglow{0%,100%{filter:drop-shadow(0 0 0 rgba(139,92,246,0))}8%{filter:drop-shadow(0 0 14px rgba(139,92,246,.95))}17%{filter:drop-shadow(0 0 0 rgba(139,92,246,0))}}
+.hos-leg{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:#B4ABD8;margin:12px 6px 4px}
+.hos-leg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.hos-ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:760px){.hos-ba{grid-template-columns:1fr}}
+.hos-box{padding:18px 20px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.hos-box h3{font-size:16px;display:flex;align-items:baseline;gap:10px}
+.hos-box h3 b{font:800 22px var(--f-display);color:#059669}
+.hos-box.before{border-top:3px solid #F59E0B}
+.hos-box.after{border-top:3px solid #10B981}
+.hos-box ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.hos-box li{margin:5px 0}
+.hos-steps{list-style:none;counter-reset:hs;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:1000px){.hos-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.hos-steps{grid-template-columns:1fr}}
+.hos-steps li{counter-increment:hs;padding:16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.hos-steps li b{display:flex;align-items:center;gap:10px;font:700 15px var(--f-display)}
+.hos-steps li b::before{content:counter(hs);display:grid;place-items:center;width:26px;height:26px;border-radius:8px;flex:none;background:linear-gradient(135deg,#6d28d9,#8b5cf6);color:#fff;font-size:12.5px}
+.hos-steps li.rc b::before{background:linear-gradient(135deg,#db2777,#f472b6)}
+.hos-steps li.pr b::before{background:linear-gradient(135deg,#d97706,#f59e0b)}
+.hos-steps li span{font-size:14px;line-height:1.5;color:var(--muted)}
+.hos-out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+@media (max-width:860px){.hos-out{grid-template-columns:1fr}}
+.hos-out div{padding:18px 20px;border-radius:14px;background:linear-gradient(120deg,#0e0828 0%,#2a0f63 100%);color:var(--hero-fg)}
+.hos-out h3{font-size:16px;color:#fff}
+.hos-out p{margin:6px 0 0;font-size:14px;color:var(--hero-muted)}
+.hos-swipe{display:none;margin:0 0 8px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){.hos-swipe{display:block}}
+.more-link{display:inline-flex;margin-top:12px;font:600 14px var(--f-body);color:var(--accent-strong);text-decoration:none}
+.more-link:hover{text-decoration:underline}
+
 /* open-source agents */
 .oss-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:18px 22px;border-radius:16px;background:linear-gradient(120deg,#0e0828 0%,#2a0f63 100%);color:var(--hero-fg)}
 .oss-stats{display:flex;flex-wrap:wrap;gap:12px 32px}
@@ -472,6 +513,7 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
             <div class="step human"><i>5</i>A developer reviews the PR</div>
           </div>
           <div class="result"><b>Days → Minutes</b><span>to reproduce a driver's scenario</span></div>
+          <a class="more-link" href="#hos">See the full workflow ↓</a>
           <div class="chips"><span>Claude Code Skills</span><span>Agentic Workflows</span><span>Datadog</span><span>Snowflake</span><span>Firebase</span><span>Scenario Permutations</span><span>AI Root Cause Analysis</span><span>Automated Fix PRs</span><span>ELD / HOS</span></div>
         </div>
       </article>
@@ -545,6 +587,115 @@ html.arrive-back body{transform-origin:left center;animation:bookArriveBack .9s 
           <div class="chips"><span>CrewAI</span><span>Microsoft AutoGen</span><span>Multi-Agent Orchestration</span></div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="hos">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Deep Dive</span>
+      <h2>How the HOS Analyzer Works</h2>
+      <p>A chain of internal Claude Code skills, each with one job. From a single request it takes a driver's reported issue to a fix that a developer reviews.</p>
+    </div>
+
+    <p class="hos-swipe">Swipe sideways to see the full workflow →</p>
+    <div class="hos-stage">
+      <svg viewBox="0 0 1000 520" role="img" aria-label="HOS Analyzer workflow: a reported user issue enters; production signals from Datadog, Snowflake, the backend and Firebase are gathered; the scenario is rebuilt and replicated in the test environment; permutations are created and executed against the code; the root cause is traced; a fix is written and pushed as a pull request; a developer reviews it; the issue is resolved.">
+        <defs>
+          <linearGradient id="hgv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A1A6B"/><stop offset="1" stop-color="#160E3E"/></linearGradient>
+          <linearGradient id="hgp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B1F55"/><stop offset="1" stop-color="#2A0F3A"/></linearGradient>
+          <linearGradient id="hga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A3208"/><stop offset="1" stop-color="#2A1B05"/></linearGradient>
+          <linearGradient id="hgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B3A4A"/><stop offset="1" stop-color="#0A1F36"/></linearGradient>
+          <linearGradient id="hgr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+          <marker id="hav" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#A78BFA"/></marker>
+          <marker id="haa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F59E0B"/></marker>
+          <marker id="hap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F472B6"/></marker>
+          <marker id="hac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22D3EE"/></marker>
+          <marker id="hag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34D399"/></marker>
+        </defs>
+
+        <rect x="40" y="12" width="200" height="50" rx="25" fill="#0E0828" stroke="#22D3EE" stroke-width="1.5"/>
+        <circle cx="64" cy="37" r="5" fill="#22D3EE"/><text class="ht" x="78" y="33" style="font-size:14px">User issue</text><text class="hm" x="78" y="49">REPORTED SCENARIO</text>
+        <path class="hflow" d="M240 37H278" stroke="#22D3EE" marker-end="url(#hac)"/>
+
+        <rect x="280" y="12" width="680" height="50" rx="14" fill="#0E0828" stroke="url(#hgr)" stroke-width="1.5"/>
+        <text class="hm" x="298" y="32" style="fill:#C4B5FD">PRODUCTION SIGNALS</text>
+        <g style="font:500 12px 'IBM Plex Mono',monospace;fill:#E3DDFB">
+          <text x="298" y="51">Datadog</text><text x="410" y="51">Snowflake</text><text x="540" y="51">Backend system</text><text x="700" y="51">Firebase</text><text x="790" y="51">Other capture tools</text>
+        </g>
+        <path class="hflow" d="M860 62V90" stroke="#A78BFA" marker-end="url(#hav)"/>
+
+        <g class="hnode" style="animation-delay:0s"><rect x="760" y="92" width="200" height="78" rx="16" fill="url(#hgv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="774" y="104" width="24" height="22" rx="7" fill="url(#hgr)"/><text class="hn" x="786" y="119" text-anchor="middle">1</text><text class="ht" x="806" y="120">Gather Signals</text><text class="hm" x="778" y="144">AI · COLLECTS EVIDENCE</text><text class="hs" x="778" y="161">Pulls data from every source</text></g>
+        <g class="hnode" style="animation-delay:.6s"><rect x="520" y="92" width="200" height="78" rx="16" fill="url(#hgv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="534" y="104" width="24" height="22" rx="7" fill="url(#hgr)"/><text class="hn" x="546" y="119" text-anchor="middle">2</text><text class="ht" x="566" y="120">Rebuild Scenario</text><text class="hm" x="538" y="144">AI · RECONSTRUCTS</text><text class="hs" x="538" y="161">The user's flow and stats</text></g>
+        <g class="hnode" style="animation-delay:1.2s"><rect x="280" y="92" width="200" height="78" rx="16" fill="url(#hgv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="294" y="104" width="24" height="22" rx="7" fill="url(#hgr)"/><text class="hn" x="306" y="119" text-anchor="middle">3</text><text class="ht" x="326" y="120">Replicate in Test</text><text class="hm" x="298" y="144">AI · RECREATES DATA</text><text class="hs" x="298" y="161">Driver data in test env</text></g>
+        <g class="hnode" style="animation-delay:1.8s"><rect x="40" y="92" width="200" height="78" rx="16" fill="url(#hgv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="54" y="104" width="24" height="22" rx="7" fill="url(#hgr)"/><text class="hn" x="66" y="119" text-anchor="middle">4</text><text class="ht" x="86" y="120">Permutations</text><text class="hm" x="58" y="144">AI · VARIES</text><text class="hs" x="58" y="161">Edge cases of the scenario</text></g>
+        <g class="hnode" style="animation-delay:2.4s"><rect x="40" y="218" width="200" height="78" rx="16" fill="url(#hgc)" stroke="#22D3EE" stroke-width="2"/><rect x="54" y="230" width="24" height="22" rx="7" fill="#22D3EE"/><text class="hn" x="66" y="245" text-anchor="middle">5</text><text class="ht" x="86" y="246">Execute vs Code</text><text class="hm" x="58" y="270">AI · REPLAYS</text><text class="hs" x="58" y="287">Runs scenario against the code</text></g>
+        <g class="hnode" style="animation-delay:3s"><rect x="280" y="218" width="200" height="78" rx="16" fill="url(#hgp)" stroke="#F472B6" stroke-width="2"/><rect x="294" y="230" width="24" height="22" rx="7" fill="#F472B6"/><text class="hn" x="306" y="245" text-anchor="middle">6</text><text class="ht" x="326" y="246">Root Cause</text><text class="hm" x="298" y="270" style="fill:#F9A8D4">AI · TRACES TO CODE</text><text class="hs" x="298" y="287">Finds where the issue lies</text></g>
+        <g class="hnode" style="animation-delay:3.6s"><rect x="520" y="218" width="200" height="78" rx="16" fill="url(#hgv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="534" y="230" width="24" height="22" rx="7" fill="url(#hgr)"/><text class="hn" x="546" y="245" text-anchor="middle">7</text><text class="ht" x="566" y="246">Write Fix</text><text class="hm" x="538" y="270">AI · FIXES</text><text class="hs" x="538" y="287">Handles the edge cases</text></g>
+        <g class="hnode" style="animation-delay:4.2s"><rect x="760" y="218" width="200" height="78" rx="16" fill="url(#hgv)" stroke="#8B5CF6" stroke-width="1.5"/><rect x="774" y="230" width="24" height="22" rx="7" fill="url(#hgr)"/><text class="hn" x="786" y="245" text-anchor="middle">8</text><text class="ht" x="806" y="246">Push Fix PR</text><text class="hm" x="778" y="270">AI · RAISES PR</text><text class="hs" x="778" y="287">Fix pushed to the repo</text></g>
+        <g class="hnode" style="animation-delay:4.8s"><rect x="760" y="344" width="200" height="78" rx="16" fill="url(#hga)" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6 4"/><text class="ht" x="778" y="372" style="fill:#FCD34D">Developer Review</text><text class="hm" x="778" y="396" style="fill:#FBBF24">GATE · HUMAN REVIEW</text><text class="hs" x="778" y="413">A developer reviews the PR</text></g>
+        <g class="hnode" style="animation-delay:5.4s"><rect x="520" y="344" width="200" height="78" rx="16" fill="#0E2A2A" stroke="#34D399" stroke-width="2"/><text class="ht" x="538" y="372" style="fill:#6EE7B7">Issue Resolved</text><text class="hm" x="538" y="396" style="fill:#6EE7B7">VERIFIED + REVIEWED</text><text class="hs" x="538" y="413">Found, fixed and shipped</text></g>
+
+        <path class="hflow" d="M758 131H722" stroke="#A78BFA" marker-end="url(#hav)"/>
+        <path class="hflow" d="M518 131H482" stroke="#A78BFA" marker-end="url(#hav)"/>
+        <path class="hflow" d="M278 131H242" stroke="#A78BFA" marker-end="url(#hav)"/>
+        <path class="hflow" d="M158 170V216" stroke="#22D3EE" marker-end="url(#hac)"/>
+        <path class="hflow" d="M122 216V172" stroke="#22D3EE" marker-end="url(#hac)" style="animation-direction:reverse"/>
+        <text class="hm" x="176" y="198" style="fill:#67E8F9">TRY MORE PERMUTATIONS</text>
+        <path class="hflow" d="M240 257H278" stroke="#F472B6" marker-end="url(#hap)"/>
+        <path class="hflow" d="M480 257H518" stroke="#A78BFA" marker-end="url(#hav)"/>
+        <path class="hflow" d="M720 257H758" stroke="#A78BFA" marker-end="url(#hav)"/>
+        <path class="hflow" d="M860 296V342" stroke="#F59E0B" marker-end="url(#haa)"/>
+        <path class="hflow" d="M758 383H722" stroke="#34D399" marker-end="url(#hag)"/>
+
+        <rect x="40" y="450" width="920" height="56" rx="12" fill="#0E0828" stroke="url(#hgr)" stroke-width="1.5"/>
+        <text class="hm" x="58" y="473" style="fill:#C4B5FD">POWERED BY INTERNAL SKILLS</text>
+        <text class="hs" x="58" y="494" style="font-size:12px">Each stage is handled by its own internal Claude Code skill, so the whole chain runs from one request.</text>
+      </svg>
+      <div class="hos-leg">
+        <span><i style="background:#8B5CF6"></i>AI skill</span>
+        <span><i style="background:#22D3EE"></i>Replay and iterate</span>
+        <span><i style="background:#F472B6"></i>Root cause analysis</span>
+        <span><i style="background:#F59E0B"></i>Human review</span>
+        <span><i style="background:#34D399"></i>Outcome</span>
+      </div>
+    </div>
+
+    <div class="hos-ba">
+      <div class="hos-box before">
+        <h3>Before</h3>
+        <ul>
+          <li>Recreating a driver's data in the test environment took hours, often days.</li>
+          <li>Critical issues, and ones that needed real data modelling, took the longest.</li>
+          <li>Edge cases had to be hit by trial, again and again, to reproduce the error.</li>
+        </ul>
+      </div>
+      <div class="hos-box after">
+        <h3>After <b>Minutes</b></h3>
+        <ul>
+          <li>One request pulls the production signals and rebuilds the scenario in test.</li>
+          <li>Permutations of the scenario are created on demand to explore edge cases.</li>
+          <li>The issue is traced in the code and a fix PR is raised for review.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ol class="hos-steps">
+      <li><b>Gather Signals</b><span>Collects everything known about the scenario from Datadog, Snowflake, the backend and Firebase.</span></li>
+      <li><b>Rebuild Scenario</b><span>Turns scattered signals into one picture: what the driver did, in what order, and the data around the error.</span></li>
+      <li><b>Replicate in Test</b><span>Recreates the scenario and driver data in a test environment, replacing days of manual data modelling.</span></li>
+      <li><b>Permutations</b><span>Creates variations of the scenario to explore the edge cases around the original problem.</span></li>
+      <li><b>Execute vs Code</b><span>Runs each scenario against the code and captures the response; results feed back into more permutations.</span></li>
+      <li class="rc"><b>Root Cause</b><span>Verifies in the code where the issue lies and which edge cases trigger it.</span></li>
+      <li><b>Write Fix</b><span>Writes the fix and handles the edge cases it found.</span></li>
+      <li class="pr"><b>Push Fix PR</b><span>Raises a pull request. A developer reviews it and decides what ships.</span></li>
+    </ol>
+
+    <div class="hos-out">
+      <div><h3>Catch Issues Earlier</h3><p>Driver problems are reproduced quickly, so they are found and understood sooner.</p></div>
+      <div><h3>QA Goes Into the Code</h3><p>QA can show where an issue lies in the code and which edge cases trigger it, not just report a symptom.</p></div>
+      <div><h3>Fix PRs for Developers</h3><p>The fix arrives as a PR to review, so the team starts a step ahead of the bug.</p></div>
     </div>
   </div>
 </section>
